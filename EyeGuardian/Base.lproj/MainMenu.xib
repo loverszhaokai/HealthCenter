@@ -16,6 +16,7 @@
             <connections>
                 <outlet property="log_text" destination="umi-7D-o3c" id="QVn-cq-bMQ"/>
                 <outlet property="restTimeText" destination="M7W-hC-Bra" id="4MU-6p-2U7"/>
+                <outlet property="skipButton" destination="34o-mD-LCq" id="gCF-rw-qGf"/>
                 <outlet property="startButton" destination="vCK-Yz-7Tg" id="bqP-VK-MfK"/>
                 <outlet property="stopButton" destination="T22-Bt-QNW" id="hzT-pg-bTm"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -782,5 +783,18 @@
                 <animations/>
             </view>
         </window>
+        <button verticalHuggingPriority="750" id="34o-mD-LCq">
+            <rect key="frame" x="0.0" y="0.0" width="138" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <animations/>
+            <buttonCell key="cell" type="push" title="Skip break" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JMV-mH-GOZ">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+            <connections>
+                <action selector="skipButtonClick:" target="Voe-Tx-rLC" id="1oR-hf-8PB"/>
+            </connections>
+            <point key="canvasLocation" x="284" y="546.5"/>
+        </button>
     </objects>
 </document>
