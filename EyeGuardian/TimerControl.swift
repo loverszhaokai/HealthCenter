@@ -23,10 +23,12 @@ class TimerControl: NSObject {
     }
     
     func setWorkTime(_work_time : NSTimeInterval) {
+        NSLog("TimerControl::setWorkTime(\(_work_time))")
         self.work_time = _work_time
     }
     
     func setRestTime(_rest_time : NSTimeInterval) {
+        NSLog("TimerControl::setRestTime(\(_rest_time))")
         self.rest_time = _rest_time
     }
     

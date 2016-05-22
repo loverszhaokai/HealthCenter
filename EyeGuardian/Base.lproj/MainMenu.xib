@@ -15,9 +15,11 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="EyeGuardian" customModuleProvider="target">
             <connections>
                 <outlet property="log_text" destination="umi-7D-o3c" id="QVn-cq-bMQ"/>
+                <outlet property="restTimeText" destination="M7W-hC-Bra" id="4MU-6p-2U7"/>
                 <outlet property="startButton" destination="vCK-Yz-7Tg" id="bqP-VK-MfK"/>
                 <outlet property="stopButton" destination="T22-Bt-QNW" id="hzT-pg-bTm"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+                <outlet property="workTimeText" destination="z0Y-Pv-czR" id="lwf-tI-bvj"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -680,7 +682,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCK-Yz-7Tg">
-                        <rect key="frame" x="47" y="288" width="136" height="32"/>
+                        <rect key="frame" x="47" y="251" width="182" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L9S-yI-hdq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -690,21 +692,32 @@
                             <action selector="startButtonClick:" target="Voe-Tx-rLC" id="vOs-R4-Iwm"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T22-Bt-QNW">
+                        <rect key="frame" x="240" y="251" width="188" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o4E-Fs-8Wu">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="stopButtonClick:" target="Voe-Tx-rLC" id="mZ8-kZ-I0Y"/>
+                        </connections>
+                    </button>
                     <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umi-7D-o3c">
-                        <rect key="frame" x="53" y="58" width="369" height="201"/>
+                        <rect key="frame" x="53" y="58" width="369" height="172"/>
                         <clipView key="contentView" ambiguous="YES" id="LDV-jD-iKg">
-                            <rect key="frame" x="1" y="1" width="352" height="199"/>
+                            <rect key="frame" x="1" y="1" width="352" height="170"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="OK2-AP-9hl">
-                                    <rect key="frame" x="0.0" y="0.0" width="352" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="352" height="170"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="352" height="199"/>
+                                    <size key="minSize" width="352" height="170"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="352" height="199"/>
+                                    <size key="minSize" width="352" height="170"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                 </textView>
                             </subviews>
@@ -718,22 +731,53 @@
                             <animations/>
                         </scroller>
                         <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="7kK-lt-NuN">
-                            <rect key="frame" x="353" y="1" width="15" height="199"/>
+                            <rect key="frame" x="353" y="1" width="15" height="170"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <animations/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T22-Bt-QNW">
-                        <rect key="frame" x="313" y="288" width="115" height="32"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tte-Vc-MR1">
+                        <rect key="frame" x="51" y="310" width="64" height="17"/>
                         <animations/>
-                        <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o4E-Fs-8Wu">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="work time:" id="1zZ-54-hPp">
                             <font key="font" metaFont="system"/>
-                        </buttonCell>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOn-af-bOc">
+                        <rect key="frame" x="244" y="310" width="62" height="17"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="rest time:" id="9K3-WM-3cL">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0Y-Pv-czR">
+                        <rect key="frame" x="121" y="307" width="102" height="22"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="4D4-vT-Eyx">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
                         <connections>
-                            <action selector="stopButtonClick:" target="Voe-Tx-rLC" id="mZ8-kZ-I0Y"/>
+                            <action selector="workTimeTextChanged:" target="Voe-Tx-rLC" id="dcL-Zx-RHf"/>
                         </connections>
-                    </button>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7W-hC-Bra">
+                        <rect key="frame" x="312" y="307" width="110" height="22"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jVh-t4-Nxe">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="restTimeTextChanged:" target="Voe-Tx-rLC" id="DsF-eW-d1r"/>
+                        </connections>
+                    </textField>
                 </subviews>
                 <animations/>
             </view>

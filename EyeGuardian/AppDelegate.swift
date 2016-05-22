@@ -15,7 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var stopButton: NSButton!
     @IBOutlet weak var log_text: NSScrollView!
-    
+    @IBOutlet weak var workTimeText: NSTextField!
+    @IBOutlet weak var restTimeText: NSTextField!
+
     private var tc : TimerControl = TimerControl(_work_time: 2, _rest_time: 2)
     
     override init() {
@@ -27,7 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         NSLog("AppDelegate::applicationDidFinishLaunching()")
 
-        
         tc.start(log_text)
         setStopButton()
     }
@@ -38,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func startButtonClick(sender: AnyObject) {
         NSLog("AppDelegate::startButtonClick()")
+        GetTimeInterval()
         tc.start(log_text)
         setStopButton()
     }
@@ -48,6 +50,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setStartButton()
     }
     
+    @IBAction func workTimeTextChanged(sender: AnyObject) {
+        NSLog("AppDelegate::workTimeTextChanged()")
+    }
+    
+    @IBAction func restTimeTextChanged(sender: AnyObject) {
+        NSLog("AppDelegate::restTimeTextChanged()")
+    }
+    
     func setStartButton() {
         stopButton.enabled = false
         startButton.enabled = true
@@ -56,6 +66,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func setStopButton() {
         startButton.enabled = false
         stopButton.enabled = true
+    }
+    
+    func GetTimeInterval() {
+        NSLog("AppDelegate::GetTimeInterval()")
+        NSLog("work_time_text=\(workTimeText.stringValue)")
+        NSLog("rest_time_text=\(restTimeText.stringValue)")
+        let work_time : Double = Double(workTimeText.stringValue)!
+        let rest_time : Double = Double(restTimeText.stringValue)!
+        
+        if (work_time > 0) {
+            tc.setWorkTime(work_time)
+        }
+
+        if (rest_time > 0) {
+            tc.setRestTime(rest_time)
+        }
     }
 }
 
