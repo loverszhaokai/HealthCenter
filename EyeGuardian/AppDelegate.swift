@@ -14,7 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var stopButton: NSButton!
-
+    @IBOutlet weak var log_text: NSScrollView!
+    
     private var tc : TimerControl = TimerControl(_work_time: 2, _rest_time: 2)
     
     override init() {
@@ -25,7 +26,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         NSLog("AppDelegate::applicationDidFinishLaunching()")
-        tc.start()
+
+        
+        tc.start(log_text)
         setStopButton()
     }
 
@@ -35,12 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func startButtonClick(sender: AnyObject) {
         NSLog("AppDelegate::startButtonClick()")
-        tc.start()
+        tc.start(log_text)
         setStopButton()
     }
     
     @IBAction func stopButtonClick(sender: AnyObject) {
-        NSLog("AppDelegate::startButtonClick()")
+        NSLog("AppDelegate::stopButtonClick()")
         tc.stop()
         setStartButton()
     }

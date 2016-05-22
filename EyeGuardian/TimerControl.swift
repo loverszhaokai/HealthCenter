@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class TimerControl: NSObject, NSApplicationDelegate {
+class TimerControl: NSObject {
 
     private var work_time : NSTimeInterval
     private var rest_time : NSTimeInterval
@@ -29,23 +29,35 @@ class TimerControl: NSObject, NSApplicationDelegate {
     func setRestTime(_rest_time : NSTimeInterval) {
         self.rest_time = _rest_time
     }
-   
-    func workStart() {
-        NSLog("TimerControl::workBegin() start to work")
-        timer_work = NSTimer.scheduledTimerWithTimeInterval(work_time, target: self, selector: "restStart", userInfo: nil, repeats: false)
+    
+    func addToScrollView(sv: NSScrollView, text: String) {
+        let textView = sv.documentView as! NSTextView
+        textView.string?.appendContentsOf(text)
     }
 
-    func restStart() {
-        NSLog("TimerControl::restBegin() start to rest")
-        timer_rest = NSTimer.scheduledTimerWithTimeInterval(rest_time, target: self, selector: "workStart", userInfo: nil, repeats: false)
-    }
+    func start(sv : NSScrollView) {
+        NSLog("TimerControl::start()")
 
-    func start() {
-        workStart()
+        timer_work = NSTimer.scheduledTimerWithTimeInterval(work_time, target: self, selector: "restStart:", userInfo: ["sv": sv], repeats: false)
+        addToScrollView(sv, text: "TimerControl log:\n")
     }
     
     func stop() {
         timer_work.invalidate()
         timer_rest.invalidate()
+    }
+
+    func workStart(timer: NSTimer) {
+        NSLog("TimerControl::workStart(timer) start to work")
+        let dict = timer.userInfo as! NSDictionary
+        timer_work = NSTimer.scheduledTimerWithTimeInterval(work_time, target: self, selector: "restStart:", userInfo: ["sv": dict["sv"]!], repeats: false)
+        addToScrollView(dict["sv"] as! NSScrollView, text: "\t >>start to work, work_time=\(work_time)\n")
+    }
+    
+    func restStart(timer: NSTimer) {
+        NSLog("TimerControl::restStart(timer) start to rest")
+        let dict = timer.userInfo as! NSDictionary
+        timer_rest = NSTimer.scheduledTimerWithTimeInterval(rest_time, target: self, selector: "workStart:", userInfo: ["sv": dict["sv"]!], repeats: false)
+        addToScrollView(dict["sv"] as! NSScrollView, text: "\t ::start to rest, rest time=\(rest_time)\n\n")
     }
 }

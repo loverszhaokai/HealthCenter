@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="EyeGuardian" customModuleProvider="target">
             <connections>
+                <outlet property="log_text" destination="umi-7D-o3c" id="QVn-cq-bMQ"/>
                 <outlet property="startButton" destination="vCK-Yz-7Tg" id="bqP-VK-MfK"/>
                 <outlet property="stopButton" destination="T22-Bt-QNW" id="hzT-pg-bTm"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
