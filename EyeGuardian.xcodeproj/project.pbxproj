@@ -12,6 +12,7 @@
 		5C5FCC751CF16B8C00060910 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C5FCC731CF16B8C00060910 /* MainMenu.xib */; };
 		5C5FCC801CF16B8C00060910 /* EyeGuardianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCC7F1CF16B8C00060910 /* EyeGuardianTests.swift */; };
 		5C5FCC8B1CF16B8C00060910 /* EyeGuardianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCC8A1CF16B8C00060910 /* EyeGuardianUITests.swift */; };
+		5C5FCC991CF16CC600060910 /* TimerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCC981CF16CC600060910 /* TimerControl.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		5C5FCC861CF16B8C00060910 /* EyeGuardianUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyeGuardianUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5FCC8A1CF16B8C00060910 /* EyeGuardianUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeGuardianUITests.swift; sourceTree = "<group>"; };
 		5C5FCC8C1CF16B8C00060910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C5FCC981CF16CC600060910 /* TimerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				5C5FCC711CF16B8C00060910 /* Assets.xcassets */,
 				5C5FCC731CF16B8C00060910 /* MainMenu.xib */,
 				5C5FCC761CF16B8C00060910 /* Info.plist */,
+				5C5FCC981CF16CC600060910 /* TimerControl.swift */,
 			);
 			path = EyeGuardian;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C5FCC701CF16B8C00060910 /* AppDelegate.swift in Sources */,
+				5C5FCC991CF16CC600060910 /* TimerControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +474,7 @@
 				5C5FCC911CF16B8C00060910 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C5FCC921CF16B8C00060910 /* Build configuration list for PBXNativeTarget "EyeGuardianTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +483,7 @@
 				5C5FCC941CF16B8C00060910 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C5FCC951CF16B8C00060910 /* Build configuration list for PBXNativeTarget "EyeGuardianUITests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +492,7 @@
 				5C5FCC971CF16B8C00060910 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
