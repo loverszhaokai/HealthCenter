@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var workTimeText: NSTextField!
     @IBOutlet weak var restTimeText: NSTextField!
 
-    private var tc : TimerControl = TimerControl(_work_time: 2, _rest_time: 2)
+    private var tc : TimerControl = TimerControl()
     
     override init() {
         NSLog("AppDelegate::init()")
@@ -28,7 +28,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         NSLog("AppDelegate::applicationDidFinishLaunching()")
-
+        
+        SetTimeIntervalFromUserDefault()
         tc.start(log_text)
         setStopButton()
     }
@@ -39,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func startButtonClick(sender: AnyObject) {
         NSLog("AppDelegate::startButtonClick()")
-        GetTimeInterval()
+        SetTimeInterval()
         tc.start(log_text)
         setStopButton()
     }
@@ -68,20 +69,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         stopButton.enabled = true
     }
     
-    func GetTimeInterval() {
+    func SetTimeInterval() {
         NSLog("AppDelegate::GetTimeInterval()")
         NSLog("work_time_text=\(workTimeText.stringValue)")
         NSLog("rest_time_text=\(restTimeText.stringValue)")
-        let work_time : Double = Double(workTimeText.stringValue)!
-        let rest_time : Double = Double(restTimeText.stringValue)!
+        let work_time_interval : Double = Double(workTimeText.stringValue)!
+        let rest_time_interval : Double = Double(restTimeText.stringValue)!
         
-        if (work_time > 0) {
-            tc.setWorkTime(work_time)
+        if (work_time_interval > 0) {
+            tc.work_time_interval = work_time_interval
         }
 
-        if (rest_time > 0) {
-            tc.setRestTime(rest_time)
+        if (rest_time_interval > 0) {
+            tc.rest_time_interval = rest_time_interval
         }
+    }
+    
+    private func SetTimeIntervalFromUserDefault() {
+        let work_time_interval = NSUserDefaults.standardUserDefaults().floatForKey("work_time_interval")
+        let rest_time_interval = NSUserDefaults.standardUserDefaults().floatForKey("rest_time_interval")
+
+        if (work_time_interval > 0) {
+            tc.work_time_interval = NSTimeInterval(work_time_interval)
+        }
+        workTimeText.stringValue = String(tc.work_time_interval);
+        
+        if (rest_time_interval > 0) {
+            tc.rest_time_interval = NSTimeInterval(rest_time_interval)
+        }
+        restTimeText.stringValue = String(tc.rest_time_interval)
+        
+        NSLog(">>>> [config] work_time_interval=\(work_time_interval), rest_time_interval=\(rest_time_interval)")
     }
 }
 
