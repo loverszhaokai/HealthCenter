@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var restTimeText: NSTextField!
 
     let skipWindow = NSWindow()
+    private var fakeWindows: [NSWindow] = [NSWindow]()
     
     private var tc : TimerControl = TimerControl()
     
@@ -32,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         NSLog("AppDelegate::applicationDidFinishLaunching()")
-        
+
         initSkipWindow()
         SetTimeIntervalFromUserDefault()
         tc.start(log_text)
@@ -136,10 +137,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func rest() {
         skipWindow.setIsVisible(true)
+        constructFakeWindows()
     }
     
     func work() {
         skipWindow.setIsVisible(false)
+        deconstructFakeWindows()
+    }
+    
+    func constructFakeWindows() {
+        for screen in NSScreen.screens()! {
+            let window = NSWindow()
+            window.collectionBehavior = NSWindowCollectionBehavior.CanJoinAllSpaces
+            let frame = screen.frame
+            window.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey))
+            window.titlebarAppearsTransparent  =   true
+            window.titleVisibility             =   .Hidden
+            window.styleMask = NSBorderlessWindowMask
+            window.setFrame(frame, display: true)
+            window.makeKeyAndOrderFront(window)
+            fakeWindows.append(window)
+        }
+    }
+    
+    func deconstructFakeWindows() {
+        for window in self.fakeWindows {
+            window.setIsVisible(false)
+            window.orderOut(window)
+            if let objIndex=self.fakeWindows.indexOf(window){
+                self.fakeWindows.removeAtIndex(objIndex)
+            }
+        }
     }
 }
 

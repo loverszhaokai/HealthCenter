@@ -61,6 +61,7 @@ class TimerControl: NSObject {
         NSLog("TimerControl::restStart(timer) start to rest")
         let dict = timer.userInfo as! NSDictionary
         rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart:", userInfo: ["sv": dict["sv"]!], repeats: false)
+        NSRunLoop.currentRunLoop().addTimer(rest_timer, forMode: NSRunLoopCommonModes)
         addToScrollView(dict["sv"] as! NSScrollView, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.rest()
