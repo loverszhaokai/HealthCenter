@@ -14,27 +14,32 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="EyeGuardian" customModuleProvider="target">
             <connections>
-                <outlet property="log_text" destination="umi-7D-o3c" id="QVn-cq-bMQ"/>
+                <outlet property="breakNowButton" destination="VMr-Tt-mBv" id="uEr-hp-QbU"/>
+                <outlet property="lastTimeLabel" destination="38t-0o-R2l" id="WBD-pU-OC0"/>
+                <outlet property="lastTimeProgress" destination="Ml1-j6-Ihb" id="nyT-fq-Fzs"/>
+                <outlet property="logText" destination="umi-7D-o3c" id="26T-f7-dxg"/>
                 <outlet property="restTimeText" destination="M7W-hC-Bra" id="4MU-6p-2U7"/>
+                <outlet property="rest_time_unit" destination="DhY-wY-7La" id="T5K-hH-qS8"/>
                 <outlet property="skipButton" destination="34o-mD-LCq" id="gCF-rw-qGf"/>
                 <outlet property="startButton" destination="vCK-Yz-7Tg" id="bqP-VK-MfK"/>
                 <outlet property="stopButton" destination="T22-Bt-QNW" id="hzT-pg-bTm"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
                 <outlet property="workTimeText" destination="z0Y-Pv-czR" id="lwf-tI-bvj"/>
+                <outlet property="work_time_unit" destination="foO-tD-Ita" id="man-3K-JhP"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <window title="EyeGuardian" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
+            <rect key="contentRect" x="335" y="390" width="589" height="368"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="589" height="368"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCK-Yz-7Tg">
-                        <rect key="frame" x="47" y="251" width="182" height="32"/>
+                        <rect key="frame" x="47" y="259" width="182" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L9S-yI-hdq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -45,7 +50,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T22-Bt-QNW">
-                        <rect key="frame" x="240" y="251" width="188" height="32"/>
+                        <rect key="frame" x="309" y="259" width="188" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o4E-Fs-8Wu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -56,21 +61,21 @@
                         </connections>
                     </button>
                     <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umi-7D-o3c">
-                        <rect key="frame" x="53" y="58" width="369" height="172"/>
+                        <rect key="frame" x="53" y="33" width="479" height="161"/>
                         <clipView key="contentView" ambiguous="YES" id="LDV-jD-iKg">
-                            <rect key="frame" x="1" y="1" width="352" height="170"/>
+                            <rect key="frame" x="1" y="1" width="462" height="159"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="OK2-AP-9hl">
-                                    <rect key="frame" x="0.0" y="0.0" width="352" height="170"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="462" height="159"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="352" height="170"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <size key="minSize" width="462" height="159"/>
+                                    <size key="maxSize" width="479" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="352" height="170"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <size key="minSize" width="462" height="159"/>
+                                    <size key="maxSize" width="479" height="10000000"/>
                                 </textView>
                             </subviews>
                             <animations/>
@@ -83,13 +88,13 @@
                             <animations/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="7kK-lt-NuN">
-                            <rect key="frame" x="1" y="1" width="15" height="0.0"/>
+                            <rect key="frame" x="463" y="1" width="15" height="159"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <animations/>
                         </scroller>
                     </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tte-Vc-MR1">
-                        <rect key="frame" x="51" y="310" width="64" height="17"/>
+                        <rect key="frame" x="51" y="318" width="64" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="work time:" id="1zZ-54-hPp">
                             <font key="font" metaFont="system"/>
@@ -98,7 +103,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOn-af-bOc">
-                        <rect key="frame" x="244" y="310" width="62" height="17"/>
+                        <rect key="frame" x="313" y="317" width="62" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="rest time:" id="9K3-WM-3cL">
                             <font key="font" metaFont="system"/>
@@ -107,7 +112,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0Y-Pv-czR">
-                        <rect key="frame" x="121" y="307" width="102" height="22"/>
+                        <rect key="frame" x="121" y="315" width="72" height="22"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="4D4-vT-Eyx">
                             <font key="font" metaFont="system"/>
@@ -119,7 +124,7 @@
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7W-hC-Bra">
-                        <rect key="frame" x="312" y="307" width="110" height="22"/>
+                        <rect key="frame" x="381" y="315" width="72" height="22"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jVh-t4-Nxe">
                             <font key="font" metaFont="system"/>
@@ -130,9 +135,64 @@
                             <action selector="restTimeTextChanged:" target="Voe-Tx-rLC" id="DsF-eW-d1r"/>
                         </connections>
                     </textField>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foO-tD-Ita">
+                        <rect key="frame" x="200" y="312" width="83" height="26"/>
+                        <animations/>
+                        <popUpButtonCell key="cell" type="push" title="minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="BLc-YT-94N" id="HT6-IX-0z2">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="llR-Jw-GXI">
+                                <items>
+                                    <menuItem title="seconds" id="5LV-6D-iQp"/>
+                                    <menuItem title="minutes" state="on" id="BLc-YT-94N"/>
+                                    <menuItem title="hours" id="6aP-Rl-Poo"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DhY-wY-7La">
+                        <rect key="frame" x="459" y="312" width="84" height="26"/>
+                        <animations/>
+                        <popUpButtonCell key="cell" type="push" title="minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="YOJ-GT-h0c" id="QGU-4G-rND">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="PW5-bt-gG9">
+                                <items>
+                                    <menuItem title="seconds" id="vzj-lZ-h1X"/>
+                                    <menuItem title="minutes" state="on" id="YOJ-GT-h0c"/>
+                                    <menuItem title="hours" id="sFh-Ij-Iwf"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMr-Tt-mBv">
+                        <rect key="frame" x="47" y="207" width="106" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Break Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XTq-Tl-9FQ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="breakNowClick:" target="Voe-Tx-rLC" id="nwV-fr-VJb"/>
+                        </connections>
+                    </button>
+                    <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Ml1-j6-Ihb">
+                        <rect key="frame" x="168" y="213" width="191" height="20"/>
+                        <animations/>
+                    </progressIndicator>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38t-0o-R2l">
+                        <rect key="frame" x="379" y="218" width="105" height="17"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0 seconds until" id="G1C-R1-VBP">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <animations/>
             </view>
+            <point key="canvasLocation" x="317.5" y="300"/>
         </window>
         <button verticalHuggingPriority="750" id="34o-mD-LCq">
             <rect key="frame" x="0.0" y="0.0" width="138" height="32"/>
