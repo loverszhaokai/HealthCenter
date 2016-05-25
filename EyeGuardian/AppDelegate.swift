@@ -26,8 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var work_time_unit: NSPopUpButton!
     @IBOutlet weak var rest_time_unit: NSPopUpButton!
     
-    @IBOutlet weak var lastTimeLabel: NSTextField!
-    @IBOutlet weak var lastTimeProgress: NSProgressIndicator!
+    @IBOutlet weak var lastWorkTimeLabel: NSTextField!
+    @IBOutlet weak var lastWorkTimeFixedLabel: NSTextField!
+    @IBOutlet weak var lastWorkTimeProgress: NSProgressIndicator!
+
+    @IBOutlet weak var lastRestTimeLabel: NSTextField!
+    @IBOutlet weak var lastRestTimeFixedLabel: NSTextField!
     @IBOutlet weak var lastRestTimeProgress: NSProgressIndicator!
 
     let POPUP_SECONDS_INDEX : Int = 0
@@ -222,7 +226,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             popUp.selectItemAtIndex(POPUP_SECONDS_INDEX)
         }
         field.stringValue = String(value)
-        field.sizeToFit()
     }
 }
 

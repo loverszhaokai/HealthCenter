@@ -11,7 +11,6 @@ import Cocoa
 class TimerControl: NSObject {
     
     let LAST_TIME_INTERVAL : NSTimeInterval = 1
-
     private var _work_time_interval : NSTimeInterval = 50 * 60
     private var _rest_time_interval : NSTimeInterval = 5 * 60
     private var work_timer : NSTimer = NSTimer()
@@ -44,7 +43,7 @@ class TimerControl: NSObject {
     func start() {
         NSLog("TimerControl::start()")
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        updateLastTimeProgressAndLabel(appDelegate.lastTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: true)
+        updateLastTimeProgressAndLabel(true)
         work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
         addToScrollView(appDelegate.logText, text: "\nTimerControl log:\n")
         addToScrollView(appDelegate.logText, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
@@ -52,8 +51,8 @@ class TimerControl: NSObject {
     
     func startToRest() {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        updateLastTimeProgressAndLabel(appDelegate.lastRestTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: false)
-        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart:", userInfo: nil, repeats: false)
+        updateLastTimeProgressAndLabel(false)
+        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart", userInfo: nil, repeats: false)
         addToScrollView(appDelegate.logText, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         appDelegate.rest()
     }
@@ -67,7 +66,7 @@ class TimerControl: NSObject {
     func workStart() {
         NSLog("TimerControl::workStart(timer) start to work")
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        updateLastTimeProgressAndLabel(appDelegate.lastTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: true)
+        updateLastTimeProgressAndLabel(true)
         work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
         addToScrollView(appDelegate.logText, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
         appDelegate.work()
@@ -76,8 +75,8 @@ class TimerControl: NSObject {
     func restStart() {
         NSLog("TimerControl::restStart(timer) start to rest")
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        updateLastTimeProgressAndLabel(appDelegate.lastRestTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: false)
-        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart:", userInfo: nil, repeats: false)
+        updateLastTimeProgressAndLabel(false)
+        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart", userInfo: nil, repeats: false)
         addToScrollView(appDelegate.logText, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         appDelegate.rest()
     }
@@ -87,15 +86,28 @@ class TimerControl: NSObject {
         textView.string?.appendContentsOf(text)
     }
     
-    func updateLastTimeProgressAndLabel(lastTimeProgress : NSProgressIndicator, lastTimeLabel : NSTextField, isWork : Bool) {
+    func updateLastTimeProgressAndLabel(isWork : Bool) {
         last_current_time = 0
-        if (isWork) {
-            last_total_time = _work_time_interval
-        } else {
+        last_total_time = _work_time_interval
+        if (!isWork) {
             last_total_time = _rest_time_interval
         }
+
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.lastWorkTimeProgress.doubleValue = 0
+        appDelegate.lastRestTimeProgress.doubleValue = 0
+        var lastTimeProgress : NSProgressIndicator = appDelegate.lastWorkTimeProgress
+        var lastTimeLabel : NSTextField = appDelegate.lastWorkTimeLabel
+        var lastTimeFixedLabel : NSTextField = appDelegate.lastWorkTimeFixedLabel
+        
+        if (!isWork) {
+            lastTimeProgress = appDelegate.lastRestTimeProgress
+            lastTimeLabel = appDelegate.lastRestTimeLabel
+            lastTimeFixedLabel = appDelegate.lastRestTimeFixedLabel
+        }
+
         last_time_timer.invalidate()
-        last_time_timer = NSTimer.scheduledTimerWithTimeInterval(LAST_TIME_INTERVAL, target: self, selector: "updateLastTimeProgress:", userInfo: ["lastTimeProgress" : lastTimeProgress, "lastTimeLabel" : lastTimeLabel, "isWork" : isWork], repeats: true)
+        last_time_timer = NSTimer.scheduledTimerWithTimeInterval(LAST_TIME_INTERVAL, target: self, selector: "updateLastTimeProgress:", userInfo: ["lastTimeProgress" : lastTimeProgress, "lastTimeLabel" : lastTimeLabel, "lastTimeFixedLabel" : lastTimeFixedLabel], repeats: true)
     }
     
     func updateLastTimeProgress(timer : NSTimer) {
@@ -104,15 +116,10 @@ class TimerControl: NSObject {
         let dict = timer.userInfo as! NSDictionary
         let lastTimeProgress = dict["lastTimeProgress"] as! NSProgressIndicator
         let lastTimeLabel = dict["lastTimeLabel"] as! NSTextField
-        let isWork = dict["isWork"] as! Bool
+        let lastTimeFixedLabel = dict["lastTimeFixedLabel"] as! NSTextField
         lastTimeProgress.doubleValue = 100 * last_current_time / last_total_time
-        var text : String = String(last_total_time - last_current_time) + " seconds until"
-        if (isWork) {
-            text.appendContentsOf(" rest")
-        } else {
-            text.appendContentsOf(" work")
-        }
-        lastTimeLabel.stringValue = text
+        lastTimeLabel.stringValue = String(last_total_time - last_current_time) + " seconds"
         lastTimeLabel.sizeToFit()
+        lastTimeLabel.setFrameOrigin(NSPoint(x: lastTimeFixedLabel.frame.origin.x - lastTimeLabel.frame.width, y: lastTimeFixedLabel.frame.origin.y))
     }
 }
