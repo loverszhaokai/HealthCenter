@@ -12,11 +12,12 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var skipWindow: NSWindow!
     
     @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var stopButton: NSButton!
-    @IBOutlet weak var skipButton: NSButton!
     @IBOutlet weak var breakNowButton: NSButton!
+    @IBOutlet weak var skipButton: NSButton!
 
     @IBOutlet weak var logText: NSScrollView!
     @IBOutlet weak var workTimeText: NSTextField!
@@ -27,7 +28,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var lastTimeLabel: NSTextField!
     @IBOutlet weak var lastTimeProgress: NSProgressIndicator!
-    
+    @IBOutlet weak var lastRestTimeProgress: NSProgressIndicator!
+
     let POPUP_SECONDS_INDEX : Int = 0
     let POPUP_MINUTES_INDEX : Int = 1
     let POPUP_HOURS_INDEX : Int = 2
@@ -36,7 +38,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let MINUTE_MULTIPLE : Double = 60
     let HOUR_MULTIPLE : Double = 60 * 60
 
-    let skipWindow = NSWindow()
     private var fakeWindows: [NSWindow] = [NSWindow]()
     
     private var tc : TimerControl = TimerControl()
@@ -51,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         initSkipWindow()
         SetTimeIntervalFromUserDefault()
-        tc.start(logText, lastTimeProgress: lastTimeProgress, lastTimeLabel: lastTimeLabel)
+        tc.start()
         setStopButton()
     }
 
@@ -62,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func startButtonClick(sender: AnyObject) {
         NSLog("AppDelegate::startButtonClick()")
         SetTimeInterval()
-        tc.start(logText, lastTimeProgress: lastTimeProgress, lastTimeLabel: lastTimeLabel)
+        tc.start()
         setStopButton()
     }
     
@@ -85,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         work()
         tc.stop()
-        tc.start(logText, lastTimeProgress: lastTimeProgress, lastTimeLabel: lastTimeLabel)
+        tc.start()
         setStopButton()
     }
     
@@ -93,7 +94,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("AppDelegate::breakNowClicked()")
         
         tc.stop()
-        tc.startToRest(logText, lastTimeProgress: lastTimeProgress, lastTimeLabel: lastTimeLabel)
+        tc.startToRest()
     }
 
     func setStartButton() {
@@ -141,21 +142,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func initSkipWindow() {
         let rect : NSRect = NSScreen.mainScreen()!.frame
-        let windowWidth : CGFloat = 300;
+        let windowWidth : CGFloat = 400;
         let windowHeight : CGFloat = 200;
         let windowXPos = (rect.width - windowWidth) / 2
         let windowYPos = (rect.height - windowHeight) / 2
         
         skipWindow.setFrame(NSRect(x: windowXPos, y: windowYPos, width: windowWidth, height: windowHeight), display: true)
-        
-        let skipWidth = skipButton.frame.width
-        let skipHeight = skipButton.frame.height
-        let skipXPos = (windowWidth - skipWidth) / 2
-        let skipYPos = (windowHeight - skipHeight) / 2
+        skipWindow.titlebarAppearsTransparent = true
+        skipWindow.titleVisibility = .Hidden
+        skipWindow.styleMask = NSBorderlessWindowMask
 
-        skipButton.setFrameOrigin(NSPoint(x: skipXPos, y: skipYPos))
+        skipButton.setFrameOrigin(NSPoint(x: 10, y: windowHeight - 70))
+        
         skipWindow.contentView?.addSubview(skipButton)
+        skipWindow.contentView?.addSubview(lastRestTimeProgress)
         skipWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey)) + 1
+        skipWindow.setIsVisible(false)
     }
     
     func rest() {

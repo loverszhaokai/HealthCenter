@@ -15,12 +15,14 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="EyeGuardian" customModuleProvider="target">
             <connections>
                 <outlet property="breakNowButton" destination="VMr-Tt-mBv" id="uEr-hp-QbU"/>
+                <outlet property="lastRestTimeProgress" destination="aUJ-Bi-G8j" id="dy4-ln-Gpu"/>
                 <outlet property="lastTimeLabel" destination="38t-0o-R2l" id="WBD-pU-OC0"/>
                 <outlet property="lastTimeProgress" destination="Ml1-j6-Ihb" id="nyT-fq-Fzs"/>
                 <outlet property="logText" destination="umi-7D-o3c" id="26T-f7-dxg"/>
                 <outlet property="restTimeText" destination="M7W-hC-Bra" id="4MU-6p-2U7"/>
                 <outlet property="rest_time_unit" destination="DhY-wY-7La" id="T5K-hH-qS8"/>
-                <outlet property="skipButton" destination="34o-mD-LCq" id="gCF-rw-qGf"/>
+                <outlet property="skipButton" destination="kL0-qe-Nwl" id="c0V-fc-e57"/>
+                <outlet property="skipWindow" destination="JYJ-8M-hQw" id="MGb-i6-9ui"/>
                 <outlet property="startButton" destination="vCK-Yz-7Tg" id="bqP-VK-MfK"/>
                 <outlet property="stopButton" destination="T22-Bt-QNW" id="hzT-pg-bTm"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -63,18 +65,18 @@
                     <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umi-7D-o3c">
                         <rect key="frame" x="53" y="33" width="479" height="161"/>
                         <clipView key="contentView" ambiguous="YES" id="LDV-jD-iKg">
-                            <rect key="frame" x="1" y="1" width="462" height="159"/>
+                            <rect key="frame" x="1" y="1" width="461" height="159"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="OK2-AP-9hl">
-                                    <rect key="frame" x="0.0" y="0.0" width="462" height="159"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="461" height="159"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="462" height="159"/>
+                                    <size key="minSize" width="461" height="159"/>
                                     <size key="maxSize" width="479" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="462" height="159"/>
+                                    <size key="minSize" width="461" height="159"/>
                                     <size key="maxSize" width="479" height="10000000"/>
                                 </textView>
                             </subviews>
@@ -88,7 +90,7 @@
                             <animations/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="7kK-lt-NuN">
-                            <rect key="frame" x="463" y="1" width="15" height="159"/>
+                            <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <animations/>
                         </scroller>
@@ -205,7 +207,42 @@
             <connections>
                 <action selector="skipButtonClick:" target="Voe-Tx-rLC" id="1oR-hf-8PB"/>
             </connections>
-            <point key="canvasLocation" x="284" y="546.5"/>
+            <point key="canvasLocation" x="183" y="466.5"/>
         </button>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="JYJ-8M-hQw">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="131" y="158" width="400" height="200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="DBB-rx-UGJ">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="aUJ-Bi-G8j">
+                        <rect key="frame" x="20" y="131" width="360" height="20"/>
+                        <animations/>
+                    </progressIndicator>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kL0-qe-Nwl">
+                        <rect key="frame" x="24" y="152" width="97" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Skip Rest" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pTL-Dd-6CS">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="skipButtonClick:" target="Voe-Tx-rLC" id="f7b-ui-80L"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kL0-qe-Nwl" firstAttribute="top" secondItem="DBB-rx-UGJ" secondAttribute="top" constant="20" id="ApJ-n5-BoN"/>
+                    <constraint firstAttribute="trailing" secondItem="aUJ-Bi-G8j" secondAttribute="trailing" constant="20" id="BaZ-Zf-iMr"/>
+                    <constraint firstItem="kL0-qe-Nwl" firstAttribute="leading" secondItem="DBB-rx-UGJ" secondAttribute="leading" constant="30" id="IrY-XI-u3y"/>
+                    <constraint firstItem="aUJ-Bi-G8j" firstAttribute="top" secondItem="DBB-rx-UGJ" secondAttribute="top" constant="50" id="Zry-0G-qoJ"/>
+                    <constraint firstItem="aUJ-Bi-G8j" firstAttribute="leading" secondItem="DBB-rx-UGJ" secondAttribute="leading" constant="20" id="sEL-iy-K74"/>
+                </constraints>
+                <animations/>
+            </view>
+        </window>
     </objects>
 </document>

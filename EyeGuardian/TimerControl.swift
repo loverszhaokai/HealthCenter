@@ -41,19 +41,20 @@ class TimerControl: NSObject {
         }
     }
 
-    func start(sv : NSScrollView, lastTimeProgress : NSProgressIndicator, lastTimeLabel : NSTextField) {
+    func start() {
         NSLog("TimerControl::start()")
-        updateLastTimeProgressAndLabel(lastTimeProgress, lastTimeLabel: lastTimeLabel, isWork: true)
-        work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart:", userInfo: ["sv": sv, "lastTimeProgress" : lastTimeProgress, "lastTimeLabel" : lastTimeLabel], repeats: false)
-        addToScrollView(sv, text: "TimerControl log:\n")
-        addToScrollView(sv, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        updateLastTimeProgressAndLabel(appDelegate.lastTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: true)
+        work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
+        addToScrollView(appDelegate.logText, text: "\nTimerControl log:\n")
+        addToScrollView(appDelegate.logText, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
     }
     
-    func startToRest(sv : NSScrollView, lastTimeProgress : NSProgressIndicator, lastTimeLabel : NSTextField) {
-        updateLastTimeProgressAndLabel(lastTimeProgress, lastTimeLabel: lastTimeLabel, isWork: false)
-        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart:", userInfo: ["sv": sv, "lastTimeProgress" : lastTimeProgress, "lastTimeLabel" : lastTimeLabel], repeats: false)
-        addToScrollView(sv, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
+    func startToRest() {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        updateLastTimeProgressAndLabel(appDelegate.lastRestTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: false)
+        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart:", userInfo: nil, repeats: false)
+        addToScrollView(appDelegate.logText, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         appDelegate.rest()
     }
     
@@ -63,23 +64,21 @@ class TimerControl: NSObject {
         last_time_timer.invalidate()
     }
 
-    func workStart(timer: NSTimer) {
+    func workStart() {
         NSLog("TimerControl::workStart(timer) start to work")
-        let dict = timer.userInfo as! NSDictionary
-        updateLastTimeProgressAndLabel(dict["lastTimeProgress"] as! NSProgressIndicator, lastTimeLabel: dict["lastTimeLabel"] as! NSTextField, isWork: true)
-        work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart:", userInfo: ["sv": dict["sv"]!, "lastTimeProgress" : dict["lastTimeProgress"]!, "lastTimeLabel" : dict["lastTimeLabel"]!], repeats: false)
-        addToScrollView(dict["sv"] as! NSScrollView, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        updateLastTimeProgressAndLabel(appDelegate.lastTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: true)
+        work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
+        addToScrollView(appDelegate.logText, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
         appDelegate.work()
     }
     
-    func restStart(timer: NSTimer) {
+    func restStart() {
         NSLog("TimerControl::restStart(timer) start to rest")
-        let dict = timer.userInfo as! NSDictionary
-        updateLastTimeProgressAndLabel(dict["lastTimeProgress"] as! NSProgressIndicator, lastTimeLabel: dict["lastTimeLabel"] as! NSTextField, isWork: false)
-        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart:", userInfo: ["sv": dict["sv"]!, "lastTimeProgress" : dict["lastTimeProgress"]!, "lastTimeLabel" : dict["lastTimeLabel"]!], repeats: false)
-        addToScrollView(dict["sv"] as! NSScrollView, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        updateLastTimeProgressAndLabel(appDelegate.lastRestTimeProgress, lastTimeLabel: appDelegate.lastTimeLabel, isWork: false)
+        rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart:", userInfo: nil, repeats: false)
+        addToScrollView(appDelegate.logText, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         appDelegate.rest()
     }
     
