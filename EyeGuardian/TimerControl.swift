@@ -14,6 +14,8 @@ class TimerControl: NSObject {
     
     private var _work_time_interval : NSTimeInterval = 50 * 60
     private var _rest_time_interval : NSTimeInterval = 5 * 60
+    private var _put_off_time_interval : NSTimeInterval = 5 * 60
+    
     private var work_timer : NSTimer = NSTimer()
     private var rest_timer : NSTimer = NSTimer()
     private var last_time_timer : NSTimer = NSTimer()
@@ -38,6 +40,16 @@ class TimerControl: NSObject {
         set {
             _rest_time_interval = newValue
             NSUserDefaults.standardUserDefaults().setObject(_rest_time_interval, forKey: "rest_time_interval")
+        }
+    }
+    
+    var put_off_time_interval : NSTimeInterval {
+        get {
+            return _put_off_time_interval
+        }
+        set {
+            _put_off_time_interval = newValue
+            NSUserDefaults.standardUserDefaults().setObject(_put_off_time_interval, forKey: "put_off_time_interval")
         }
     }
 

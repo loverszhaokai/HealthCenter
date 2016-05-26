@@ -18,12 +18,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var stopButton: NSButton!
     @IBOutlet weak var breakNowButton: NSButton!
     @IBOutlet weak var skipButton: NSButton!
+    @IBOutlet weak var putOffButton: NSButton!
 
     @IBOutlet weak var workTimeText: NSTextField!
     @IBOutlet weak var restTimeText: NSTextField!
+    @IBOutlet weak var putOffTimeText: NSTextField!
     
     @IBOutlet weak var work_time_unit: NSPopUpButton!
     @IBOutlet weak var rest_time_unit: NSPopUpButton!
+    @IBOutlet weak var put_off_time_unit: NSPopUpButton!
     
     @IBOutlet weak var lastWorkTimeLabel: NSTextField!
     @IBOutlet weak var lastWorkTimeFixedLabel: NSTextField!
@@ -93,6 +96,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setStopButton()
     }
     
+    @IBAction func putOffButtonClick(sender: AnyObject) {
+    }
+    
     @IBAction func breakNowClick(sender: AnyObject) {
         NSLog("AppDelegate::breakNowClicked()")
         
@@ -129,6 +135,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // work_time_interval is seconds
         let work_time_interval = NSUserDefaults.standardUserDefaults().doubleForKey("work_time_interval")
         let rest_time_interval = NSUserDefaults.standardUserDefaults().doubleForKey("rest_time_interval")
+        let put_off_time_interval = NSUserDefaults.standardUserDefaults().doubleForKey("put_off_time_interval")
 
         if (work_time_interval > 0) {
             tc.work_time_interval = NSTimeInterval(work_time_interval)
@@ -140,17 +147,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         initTimeFieldAndPopUp(tc.rest_time_interval, field: restTimeText, popUp: rest_time_unit)
         
+        if (put_off_time_interval > 0) {
+            tc.put_off_time_interval = NSTimeInterval(put_off_time_interval)
+        }
+        initTimeFieldAndPopUp(tc.put_off_time_interval, field: putOffTimeText, popUp: put_off_time_unit)
+        
         NSLog(">>>> [config] work_time_interval=\(work_time_interval), rest_time_interval=\(rest_time_interval)")
     }
     
     func initSkipWindow() {
         let rect : NSRect = NSScreen.mainScreen()!.frame
-        let windowWidth : CGFloat = 400;
-        let windowHeight : CGFloat = 200;
-        let windowXPos = (rect.width - windowWidth) / 2
-        let windowYPos = (rect.height - windowHeight) / 2
-        
-        skipWindow.setFrame(NSRect(x: windowXPos, y: windowYPos, width: windowWidth, height: windowHeight), display: true)
+        let windowXPos = (rect.width - skipWindow.frame.width) / 2
+        let windowYPos = (rect.height - skipWindow.frame.height) / 2
+        skipWindow.setFrameOrigin(NSPoint(x: windowXPos, y: windowYPos))
         skipWindow.titlebarAppearsTransparent = true
         skipWindow.titleVisibility = .Hidden
         skipWindow.styleMask = NSBorderlessWindowMask
@@ -160,7 +169,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func rest() {
         skipWindow.setIsVisible(true)
-        constructFakeWindows()
+        //constructFakeWindows()
     }
     
     func work() {

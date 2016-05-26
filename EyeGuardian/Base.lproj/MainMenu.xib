@@ -21,6 +21,9 @@
                 <outlet property="lastWorkTimeFixedLabel" destination="7Oh-lo-AFw" id="pfB-sE-b7w"/>
                 <outlet property="lastWorkTimeLabel" destination="38t-0o-R2l" id="vEX-Fn-Lpt"/>
                 <outlet property="lastWorkTimeProgress" destination="Ml1-j6-Ihb" id="Du2-fX-qSE"/>
+                <outlet property="putOffButton" destination="HZL-KN-m2y" id="Z5O-73-jht"/>
+                <outlet property="putOffTimeText" destination="sDt-yr-J23" id="1xP-jO-HX9"/>
+                <outlet property="put_off_time_unit" destination="k9q-eq-kSN" id="9MF-Bb-2Yw"/>
                 <outlet property="restTimeText" destination="M7W-hC-Bra" id="4MU-6p-2U7"/>
                 <outlet property="rest_time_unit" destination="DhY-wY-7La" id="T5K-hH-qS8"/>
                 <outlet property="skipButton" destination="kL0-qe-Nwl" id="c0V-fc-e57"/>
@@ -121,21 +124,6 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DhY-wY-7La">
-                        <rect key="frame" x="459" y="181" width="84" height="26"/>
-                        <animations/>
-                        <popUpButtonCell key="cell" type="push" title="minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="YOJ-GT-h0c" id="QGU-4G-rND">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="PW5-bt-gG9">
-                                <items>
-                                    <menuItem title="seconds" id="vzj-lZ-h1X"/>
-                                    <menuItem title="minutes" state="on" id="YOJ-GT-h0c"/>
-                                    <menuItem title="hours" id="sFh-Ij-Iwf"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMr-Tt-mBv">
                         <rect key="frame" x="47" y="76" width="106" height="32"/>
                         <animations/>
@@ -169,6 +157,21 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DhY-wY-7La">
+                        <rect key="frame" x="459" y="181" width="84" height="26"/>
+                        <animations/>
+                        <popUpButtonCell key="cell" type="push" title="minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="YOJ-GT-h0c" id="QGU-4G-rND">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="PW5-bt-gG9">
+                                <items>
+                                    <menuItem title="seconds" id="vzj-lZ-h1X"/>
+                                    <menuItem title="minutes" state="on" id="YOJ-GT-h0c"/>
+                                    <menuItem title="hours" id="sFh-Ij-Iwf"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
                 <animations/>
             </view>
@@ -198,8 +201,8 @@
                             <action selector="skipButtonClick:" target="Voe-Tx-rLC" id="f7b-ui-80L"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-yE-0US">
-                        <rect key="frame" x="314" y="26" width="68" height="17"/>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-yE-0US">
+                        <rect key="frame" x="298" y="32" width="74" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="until work" id="7WW-6I-AWU">
                             <font key="font" metaFont="system"/>
@@ -207,8 +210,8 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOR-f2-wsV">
-                        <rect key="frame" x="235" y="26" width="37" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZOR-f2-wsV">
+                        <rect key="frame" x="278" y="32" width="4" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="Mjz-xL-Ru7">
                             <font key="font" metaFont="system"/>
@@ -216,13 +219,60 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HZL-KN-m2y">
+                        <rect key="frame" x="129" y="79" width="84" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Put Off" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="p4O-XM-kNC">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="putOffButtonClick:" target="Voe-Tx-rLC" id="rcy-xm-lCJ"/>
+                        </connections>
+                    </button>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k9q-eq-kSN">
+                        <rect key="frame" x="284" y="83" width="89" height="26"/>
+                        <animations/>
+                        <popUpButtonCell key="cell" type="push" title="minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Eg2-Hn-tvf" id="gYl-ur-uCu">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="4ca-TP-AW6">
+                                <items>
+                                    <menuItem title="seconds" id="UGB-3T-zs8"/>
+                                    <menuItem title="minutes" state="on" id="Eg2-Hn-tvf"/>
+                                    <menuItem title="hours" id="W0T-cs-Fxx"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sDt-yr-J23">
+                        <rect key="frame" x="217" y="85" width="59" height="22"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="yNm-lP-ToC">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ZOR-f2-wsV" firstAttribute="leading" secondItem="DBB-rx-UGJ" secondAttribute="leading" constant="280" id="6OR-ee-zc4"/>
                     <constraint firstItem="kL0-qe-Nwl" firstAttribute="top" secondItem="DBB-rx-UGJ" secondAttribute="top" constant="20" id="ApJ-n5-BoN"/>
+                    <constraint firstItem="ZOR-f2-wsV" firstAttribute="top" secondItem="aUJ-Bi-G8j" secondAttribute="bottom" constant="10" id="Axj-jX-dk2"/>
                     <constraint firstAttribute="trailing" secondItem="aUJ-Bi-G8j" secondAttribute="trailing" constant="30" id="BaZ-Zf-iMr"/>
+                    <constraint firstAttribute="trailing" secondItem="eU5-yE-0US" secondAttribute="trailing" constant="30" id="HUw-xQ-Sg7"/>
+                    <constraint firstItem="eU5-yE-0US" firstAttribute="leading" secondItem="ZOR-f2-wsV" secondAttribute="trailing" constant="20" id="IcI-Y5-Hoj"/>
                     <constraint firstItem="kL0-qe-Nwl" firstAttribute="leading" secondItem="DBB-rx-UGJ" secondAttribute="leading" constant="30" id="IrY-XI-u3y"/>
+                    <constraint firstItem="HZL-KN-m2y" firstAttribute="leading" secondItem="kL0-qe-Nwl" secondAttribute="trailing" constant="20" id="JtF-jZ-wlI"/>
+                    <constraint firstItem="k9q-eq-kSN" firstAttribute="leading" secondItem="sDt-yr-J23" secondAttribute="trailing" constant="10" id="Kmw-zL-4Wh"/>
+                    <constraint firstItem="HZL-KN-m2y" firstAttribute="top" secondItem="DBB-rx-UGJ" secondAttribute="top" constant="20" id="OTj-55-Zf6"/>
+                    <constraint firstItem="k9q-eq-kSN" firstAttribute="top" secondItem="DBB-rx-UGJ" secondAttribute="top" constant="20" id="SNM-S1-6BH"/>
+                    <constraint firstItem="eU5-yE-0US" firstAttribute="top" secondItem="aUJ-Bi-G8j" secondAttribute="bottom" constant="10" id="Vpe-zL-oup"/>
+                    <constraint firstItem="sDt-yr-J23" firstAttribute="leading" secondItem="HZL-KN-m2y" secondAttribute="trailing" constant="10" id="Y0O-0r-d4a"/>
                     <constraint firstItem="aUJ-Bi-G8j" firstAttribute="top" secondItem="DBB-rx-UGJ" secondAttribute="top" constant="50" id="Zry-0G-qoJ"/>
+                    <constraint firstItem="sDt-yr-J23" firstAttribute="top" secondItem="DBB-rx-UGJ" secondAttribute="top" constant="20" id="jCu-Tp-yeh"/>
                     <constraint firstItem="aUJ-Bi-G8j" firstAttribute="leading" secondItem="DBB-rx-UGJ" secondAttribute="leading" constant="30" id="sEL-iy-K74"/>
+                    <constraint firstAttribute="trailing" secondItem="k9q-eq-kSN" secondAttribute="trailing" constant="30" id="uqJ-AC-STM"/>
                 </constraints>
                 <animations/>
             </view>
