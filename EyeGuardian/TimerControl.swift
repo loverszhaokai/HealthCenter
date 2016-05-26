@@ -43,18 +43,14 @@ class TimerControl: NSObject {
 
     func start() {
         NSLog("TimerControl::start()")
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         updateLastTimeProgressAndLabel(true)
         work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
-        addToScrollView(appDelegate.logText, text: "\nTimerControl log:\n")
-        addToScrollView(appDelegate.logText, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
     }
     
     func startToRest() {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         updateLastTimeProgressAndLabel(false)
         rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart", userInfo: nil, repeats: false)
-        addToScrollView(appDelegate.logText, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         appDelegate.rest()
     }
     
@@ -69,7 +65,6 @@ class TimerControl: NSObject {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         updateLastTimeProgressAndLabel(true)
         work_timer = NSTimer.scheduledTimerWithTimeInterval(_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
-        addToScrollView(appDelegate.logText, text: "\t >> start to work, _work_time_interval=\(_work_time_interval)\n")
         appDelegate.work()
     }
     
@@ -78,13 +73,7 @@ class TimerControl: NSObject {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         updateLastTimeProgressAndLabel(false)
         rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart", userInfo: nil, repeats: false)
-        addToScrollView(appDelegate.logText, text: "\t << start to rest, _rest_time_interval=\(_rest_time_interval)\n\n")
         appDelegate.rest()
-    }
-    
-    func addToScrollView(sv: NSScrollView, text: String) {
-        let textView = sv.documentView as! NSTextView
-        textView.string?.appendContentsOf(text)
     }
     
     func updateLastTimeProgressAndLabel(isWork : Bool) {

@@ -19,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var breakNowButton: NSButton!
     @IBOutlet weak var skipButton: NSButton!
 
-    @IBOutlet weak var logText: NSScrollView!
     @IBOutlet weak var workTimeText: NSTextField!
     @IBOutlet weak var restTimeText: NSTextField!
     
@@ -155,11 +154,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         skipWindow.titlebarAppearsTransparent = true
         skipWindow.titleVisibility = .Hidden
         skipWindow.styleMask = NSBorderlessWindowMask
-
-        skipButton.setFrameOrigin(NSPoint(x: 10, y: windowHeight - 70))
-        
-        skipWindow.contentView?.addSubview(skipButton)
-        skipWindow.contentView?.addSubview(lastRestTimeProgress)
         skipWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey)) + 1
         skipWindow.setIsVisible(false)
     }
