@@ -11,6 +11,7 @@ import Cocoa
 class TimerControl: NSObject {
     
     let LAST_TIME_INTERVAL : NSTimeInterval = 1
+    
     private var _work_time_interval : NSTimeInterval = 50 * 60
     private var _rest_time_interval : NSTimeInterval = 5 * 60
     private var work_timer : NSTimer = NSTimer()
@@ -118,8 +119,34 @@ class TimerControl: NSObject {
         let lastTimeLabel = dict["lastTimeLabel"] as! NSTextField
         let lastTimeFixedLabel = dict["lastTimeFixedLabel"] as! NSTextField
         lastTimeProgress.doubleValue = 100 * last_current_time / last_total_time
-        lastTimeLabel.stringValue = String(last_total_time - last_current_time) + " seconds"
+        lastTimeLabel.stringValue = getFormatTime(Int(last_total_time - last_current_time))
         lastTimeLabel.sizeToFit()
         lastTimeLabel.setFrameOrigin(NSPoint(x: lastTimeFixedLabel.frame.origin.x - lastTimeLabel.frame.width, y: lastTimeFixedLabel.frame.origin.y))
+    }
+    
+    func getFormatTime(var seconds : Int) -> String {
+        let hours : Int = seconds / (60 * 60)
+        seconds = seconds - hours * 60 * 60
+        let minutes : Int = seconds / 60
+        seconds = seconds - minutes * 60
+        
+        var format_time : String = ""
+        
+        if (hours > 0) {
+            format_time.appendContentsOf("\(hours) hour")
+            if (hours > 1) {
+                format_time.appendContentsOf("s")
+            }
+        }
+        
+        if (hours > 0 || minutes > 0) {
+            format_time.appendContentsOf(" \(minutes) minute")
+            if (minutes > 1) {
+                format_time.appendContentsOf("s")
+            }
+        }
+        
+        format_time.appendContentsOf(" \(seconds) seconds")
+        return format_time
     }
 }
