@@ -58,7 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         initSkipWindow()
         SetTimeIntervalFromUserDefault()
-        tc.start()
+        tc.workStart()
         setStopButton()
     }
 
@@ -69,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func startButtonClick(sender: AnyObject) {
         NSLog("AppDelegate::startButtonClick()")
         SetTimeInterval()
-        tc.start()
+        tc.workStart()
         setStopButton()
     }
     
@@ -90,13 +90,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func skipButtonClick(sender: AnyObject) {
         NSLog("AppDelegate::skipButtonClick()")
         
-        work()
         tc.stop()
-        tc.start()
+        tc.workStart()
         setStopButton()
     }
     
     @IBAction func putOffButtonClick(sender: AnyObject) {
+        SetPutOffTimeInterval()
+        tc.putOffStart()
     }
     
     @IBAction func breakNowClick(sender: AnyObject) {
@@ -131,6 +132,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    func SetPutOffTimeInterval() {
+        let put_off_time_interval : Double = Double(putOffTimeText.stringValue)!
+        
+        if (put_off_time_interval > 0) {
+            tc.put_off_time_interval = put_off_time_interval * Double(getTimesByIndexOfSelectedItem(put_off_time_unit.indexOfSelectedItem))
+        }
+    }
+    
     private func SetTimeIntervalFromUserDefault() {
         // work_time_interval is seconds
         let work_time_interval = NSUserDefaults.standardUserDefaults().doubleForKey("work_time_interval")
@@ -160,19 +169,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let windowXPos = (rect.width - skipWindow.frame.width) / 2
         let windowYPos = (rect.height - skipWindow.frame.height) / 2
         skipWindow.setFrameOrigin(NSPoint(x: windowXPos, y: windowYPos))
-        skipWindow.titlebarAppearsTransparent = true
-        skipWindow.titleVisibility = .Hidden
+        //skipWindow.titlebarAppearsTransparent = true
+        //skipWindow.titleVisibility = .Hidden
         skipWindow.styleMask = NSBorderlessWindowMask
-        skipWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey)) + 1
+        skipWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey)) + 100
         skipWindow.setIsVisible(false)
     }
     
     func rest() {
         skipWindow.setIsVisible(true)
-        //constructFakeWindows()
+        window.setIsVisible(false)
+        constructFakeWindows()
     }
     
     func work() {
+        window.makeKeyWindow()
+        window.setIsVisible(true)
         skipWindow.setIsVisible(false)
         deconstructFakeWindows()
     }
