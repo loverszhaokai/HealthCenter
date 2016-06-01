@@ -30,7 +30,6 @@ class TimerControl: NSObject {
         }
         set {
             _work_time_interval = newValue
-            NSUserDefaults.standardUserDefaults().setObject(_work_time_interval, forKey: "work_time_interval")
         }
     }
     
@@ -49,7 +48,6 @@ class TimerControl: NSObject {
         }
         set {
             _rest_time_interval = newValue
-            NSUserDefaults.standardUserDefaults().setObject(_rest_time_interval, forKey: "rest_time_interval")
         }
     }
     
@@ -59,7 +57,6 @@ class TimerControl: NSObject {
         }
         set {
             _put_off_time_interval = newValue
-            NSUserDefaults.standardUserDefaults().setObject(_put_off_time_interval, forKey: "put_off_time_interval")
         }
     }
     
@@ -96,6 +93,8 @@ class TimerControl: NSObject {
     }
 
     func realWorkStart() {
+        NSLog("TimerControl::realWorkStart() _real_work_time_interval=\(_real_work_time_interval)")
+        stop()
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         updateLastTimeProgressAndLabel(true)
         work_timer = NSTimer.scheduledTimerWithTimeInterval(_real_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
