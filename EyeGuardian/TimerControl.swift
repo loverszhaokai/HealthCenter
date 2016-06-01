@@ -114,16 +114,14 @@ class TimerControl: NSObject {
         appDelegate.lastRestTimeProgress.doubleValue = 0
         var lastTimeProgress : NSProgressIndicator = appDelegate.lastWorkTimeProgress
         var lastTimeLabel : NSTextField = appDelegate.lastWorkTimeLabel
-        var lastTimeFixedLabel : NSTextField = appDelegate.lastWorkTimeFixedLabel
         
         if (!isWork) {
             lastTimeProgress = appDelegate.lastRestTimeProgress
             lastTimeLabel = appDelegate.lastRestTimeLabel
-            lastTimeFixedLabel = appDelegate.lastRestTimeFixedLabel
         }
 
         last_time_timer.invalidate()
-        last_time_timer = NSTimer.scheduledTimerWithTimeInterval(LAST_TIME_INTERVAL, target: self, selector: "updateLastTimeProgress:", userInfo: ["lastTimeProgress" : lastTimeProgress, "lastTimeLabel" : lastTimeLabel, "lastTimeFixedLabel" : lastTimeFixedLabel], repeats: true)
+        last_time_timer = NSTimer.scheduledTimerWithTimeInterval(LAST_TIME_INTERVAL, target: self, selector: "updateLastTimeProgress:", userInfo: ["lastTimeProgress" : lastTimeProgress, "lastTimeLabel" : lastTimeLabel], repeats: true)
     }
     
     func updateLastTimeProgress(timer : NSTimer) {
@@ -132,11 +130,9 @@ class TimerControl: NSObject {
         let dict = timer.userInfo as! NSDictionary
         let lastTimeProgress = dict["lastTimeProgress"] as! NSProgressIndicator
         let lastTimeLabel = dict["lastTimeLabel"] as! NSTextField
-        let lastTimeFixedLabel = dict["lastTimeFixedLabel"] as! NSTextField
         lastTimeProgress.doubleValue = 100 * last_current_time / last_total_time
         lastTimeLabel.stringValue = getFormatTime(Int(last_total_time - last_current_time))
         lastTimeLabel.sizeToFit()
-        lastTimeLabel.setFrameOrigin(NSPoint(x: lastTimeFixedLabel.frame.origin.x - lastTimeLabel.frame.width, y: lastTimeFixedLabel.frame.origin.y))
     }
     
     func getFormatTime(var seconds : Int) -> String {

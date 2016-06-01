@@ -169,9 +169,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let windowXPos = (rect.width - skipWindow.frame.width) / 2
         let windowYPos = (rect.height - skipWindow.frame.height) / 2
         skipWindow.setFrameOrigin(NSPoint(x: windowXPos, y: windowYPos))
-        //skipWindow.titlebarAppearsTransparent = true
-        //skipWindow.titleVisibility = .Hidden
-        skipWindow.styleMask = NSBorderlessWindowMask
+        skipWindow.titlebarAppearsTransparent = true
+        skipWindow.titleVisibility = .Hidden
+        skipWindow.styleMask &= ~(NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask)
         skipWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey)) + 100
         skipWindow.setIsVisible(false)
     }
