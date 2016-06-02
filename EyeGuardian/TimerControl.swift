@@ -62,7 +62,7 @@ class TimerControl: NSObject {
     
     func startToRest() {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        updateLastTimeProgressAndLabel(false)
+        updateLastRestTimeProgress()
         rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart", userInfo: nil, repeats: false)
         appDelegate.rest()
     }
@@ -87,7 +87,7 @@ class TimerControl: NSObject {
     func restStart() {
         NSLog("TimerControl::restStart(timer) start to rest")
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        updateLastTimeProgressAndLabel(false)
+        updateLastRestTimeProgress()
         rest_timer = NSTimer.scheduledTimerWithTimeInterval(_rest_time_interval, target: self, selector: "workStart", userInfo: nil, repeats: false)
         appDelegate.rest()
     }
@@ -96,42 +96,39 @@ class TimerControl: NSObject {
         NSLog("TimerControl::realWorkStart() _real_work_time_interval=\(_real_work_time_interval)")
         stop()
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        updateLastTimeProgressAndLabel(true)
+        updateLastTimeMenuLabel()
         work_timer = NSTimer.scheduledTimerWithTimeInterval(_real_work_time_interval, target: self, selector: "restStart", userInfo: nil, repeats: false)
         appDelegate.work()
     }
     
-    func updateLastTimeProgressAndLabel(isWork : Bool) {
+    func updateLastTimeMenuLabel() {
         last_current_time = 0
         last_total_time = _real_work_time_interval
-        if (!isWork) {
-            last_total_time = _rest_time_interval
-        }
-
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.lastWorkTimeProgress.doubleValue = 0
-        appDelegate.lastRestTimeProgress.doubleValue = 0
-        var lastTimeProgress : NSProgressIndicator = appDelegate.lastWorkTimeProgress
-        var lastTimeLabel : NSTextField = appDelegate.lastWorkTimeLabel
-        
-        if (!isWork) {
-            lastTimeProgress = appDelegate.lastRestTimeProgress
-            lastTimeLabel = appDelegate.lastRestTimeLabel
-        }
-
         last_time_timer.invalidate()
-        last_time_timer = NSTimer.scheduledTimerWithTimeInterval(LAST_TIME_INTERVAL, target: self, selector: "updateLastTimeProgress:", userInfo: ["lastTimeProgress" : lastTimeProgress, "lastTimeLabel" : lastTimeLabel], repeats: true)
+        last_time_timer = NSTimer.scheduledTimerWithTimeInterval(LAST_TIME_INTERVAL, target: self, selector: "updateLastTimeMenuLabelPerSecond", userInfo: nil, repeats: true)
     }
     
-    func updateLastTimeProgress(timer : NSTimer) {
+    func updateLastTimeMenuLabelPerSecond() {
         last_current_time++
-        NSLog("\t updateLastTimeProgress: last_current_time=\(last_current_time)  last_total_time=\(last_total_time) doublev=\(last_current_time / last_total_time)")
-        let dict = timer.userInfo as! NSDictionary
-        let lastTimeProgress = dict["lastTimeProgress"] as! NSProgressIndicator
-        let lastTimeLabel = dict["lastTimeLabel"] as! NSTextField
-        lastTimeProgress.doubleValue = 100 * last_current_time / last_total_time
-        lastTimeLabel.stringValue = getFormatTime(Int(last_total_time - last_current_time))
-        lastTimeLabel.sizeToFit()
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.lastTimeMenuLabel.title = getFormatTime(Int(last_total_time - last_current_time)) + " until rest"
+    }
+    
+    func updateLastRestTimeProgress() {
+        last_current_time = 0
+        last_total_time = _rest_time_interval
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.lastRestTimeProgress.doubleValue = 0
+        last_time_timer.invalidate()
+        last_time_timer = NSTimer.scheduledTimerWithTimeInterval(LAST_TIME_INTERVAL, target: self, selector: "updateLastRestTimeProgressPerSecond", userInfo: nil, repeats: true)
+    }
+    
+    func updateLastRestTimeProgressPerSecond() {
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        last_current_time++
+        appDelegate.lastRestTimeProgress.doubleValue = 100 * last_current_time / last_total_time
+        appDelegate.lastRestTimeLabel.stringValue = getFormatTime(Int(last_total_time - last_current_time))
+        appDelegate.lastRestTimeLabel.sizeToFit()
     }
     
     func getFormatTime(var seconds : Int) -> String {

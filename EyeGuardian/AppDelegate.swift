@@ -11,12 +11,9 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var preferenceWindow: NSWindow!
     @IBOutlet weak var skipWindow: NSWindow!
-    
-    @IBOutlet weak var startButton: NSButton!
-    @IBOutlet weak var stopButton: NSButton!
-    @IBOutlet weak var breakNowButton: NSButton!
+
     @IBOutlet weak var skipButton: NSButton!
     @IBOutlet weak var putOffButton: NSButton!
 
@@ -27,15 +24,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var work_time_unit: NSPopUpButton!
     @IBOutlet weak var rest_time_unit: NSPopUpButton!
     @IBOutlet weak var put_off_time_unit: NSPopUpButton!
-    
-    @IBOutlet weak var lastWorkTimeLabel: NSTextField!
-    @IBOutlet weak var lastWorkTimeFixedLabel: NSTextField!
-    @IBOutlet weak var lastWorkTimeProgress: NSProgressIndicator!
 
     @IBOutlet weak var lastRestTimeLabel: NSTextField!
     @IBOutlet weak var lastRestTimeFixedLabel: NSTextField!
     @IBOutlet weak var lastRestTimeProgress: NSProgressIndicator!
 
+    @IBOutlet weak var menu: NSMenu!
+    @IBOutlet weak var lastTimeMenuLabel: NSMenuItem!
+    
+    let statusBar = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let POPUP_SECONDS_INDEX : Int = 0
     let POPUP_MINUTES_INDEX : Int = 1
     let POPUP_HOURS_INDEX : Int = 2
@@ -63,41 +60,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         NSLog("AppDelegate::applicationDidFinishLaunching()")
+
+        initMenu()
+        initPreferenceWindow()
         initSkipWindow()
         SetTimeIntervalFromUserDefault()
         tc.workStart()
-        setStopButton()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
-
-    @IBAction func startButtonClick(sender: AnyObject) {
-        NSLog("AppDelegate::startButtonClick()")
-        SetTimeInterval()
-        tc.workStart()
-        setStopButton()
-    }
-    
-    @IBAction func stopButtonClick(sender: AnyObject) {
-        NSLog("AppDelegate::stopButtonClick()")
-        tc.stop()
-        setStartButton()
-    }
     
     @IBAction func workTimeTextChanged(sender: AnyObject) {
         NSLog("AppDelegate::workTimeTextChanged()")
+        SetTimeInterval()
     }
     
     @IBAction func restTimeTextChanged(sender: AnyObject) {
         NSLog("AppDelegate::restTimeTextChanged()")
+        SetTimeInterval()
     }
     
     @IBAction func skipButtonClick(sender: AnyObject) {
         NSLog("AppDelegate::skipButtonClick()")
         tc.workStart()
-        setStopButton()
     }
     
     @IBAction func putOffButtonClick(sender: AnyObject) {
@@ -105,21 +92,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         tc.putOffStart()
     }
     
-    @IBAction func breakNowClick(sender: AnyObject) {
-        NSLog("AppDelegate::breakNowClicked()")
-        
+    @IBAction func restNowClick(sender: AnyObject) {
         tc.stop()
         tc.startToRest()
     }
-
-    func setStartButton() {
-        stopButton.enabled = false
-        startButton.enabled = true
+    
+    @IBAction func preferenceClick(sender: AnyObject) {
+        preferenceWindow.setIsVisible(true)
     }
     
-    func setStopButton() {
-        startButton.enabled = false
-        stopButton.enabled = true
+    @IBAction func quitClick(sender: AnyObject) {
+        NSApplication.sharedApplication().terminate(self)
     }
 
     func SetTimeInterval() {
@@ -188,11 +171,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog(">>>> [config] work_time_interval=\(work_time_interval), rest_time_interval=\(rest_time_interval)")
     }
     
+    func initMenu() {
+        let icon = NSImage(named: "ball6")
+        icon?.template = true
+        statusBar.image = icon
+        statusBar.menu = menu
+    }
+    
+    func initPreferenceWindow() {
+        setWindowToCenter(preferenceWindow)
+        preferenceWindow.setIsVisible(false)
+    }
+    
     func initSkipWindow() {
-        let rect : NSRect = NSScreen.mainScreen()!.frame
-        let windowXPos = (rect.width - skipWindow.frame.width) / 2
-        let windowYPos = (rect.height - skipWindow.frame.height) / 2
-        skipWindow.setFrameOrigin(NSPoint(x: windowXPos, y: windowYPos))
+        setWindowToCenter(skipWindow)
         skipWindow.titlebarAppearsTransparent = true
         skipWindow.titleVisibility = .Hidden
         skipWindow.styleMask &= ~(NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask)
@@ -202,40 +194,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func rest() {
         skipWindow.setIsVisible(true)
-        window.setIsVisible(false)
         constructFakeWindows()
     }
     
     func work() {
-        window.makeKeyWindow()
-        window.setIsVisible(true)
+        preferenceWindow.makeKeyWindow()
         skipWindow.setIsVisible(false)
         deconstructFakeWindows()
     }
     
     func constructFakeWindows() {
         for screen in NSScreen.screens()! {
-            let window = NSWindow()
-            window.collectionBehavior = NSWindowCollectionBehavior.CanJoinAllSpaces
+            let win = NSWindow()
+            win.collectionBehavior = NSWindowCollectionBehavior.CanJoinAllSpaces
             let frame = screen.frame
-            window.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey))
-            window.titlebarAppearsTransparent  =   true
-            window.titleVisibility             =   .Hidden
-            window.styleMask = NSBorderlessWindowMask
-            window.setFrame(frame, display: true)
-            window.makeKeyAndOrderFront(window)
-            window.backgroundColor = NSColor(deviceRed: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
-            window.opaque = false
-            window.toggleFullScreen(window)
-            fakeWindows.append(window)
+            win.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey))
+            win.titlebarAppearsTransparent  =   true
+            win.titleVisibility             =   .Hidden
+            win.styleMask = NSBorderlessWindowMask
+            win.setFrame(frame, display: true)
+            win.makeKeyAndOrderFront(win)
+            win.backgroundColor = NSColor(deviceRed: 0.5, green: 0.5, blue: 0.5, alpha: 0.6)
+            win.opaque = false
+            win.toggleFullScreen(win)
+            fakeWindows.append(win)
         }
     }
     
     func deconstructFakeWindows() {
-        for window in self.fakeWindows {
-            window.setIsVisible(false)
-            window.orderOut(window)
-            if let objIndex=self.fakeWindows.indexOf(window){
+        for win in self.fakeWindows {
+            win.setIsVisible(false)
+            win.orderOut(win)
+            if let objIndex=self.fakeWindows.indexOf(win){
                 self.fakeWindows.removeAtIndex(objIndex)
             }
         }
@@ -265,6 +255,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             popUp.selectItemAtIndex(POPUP_SECONDS_INDEX)
         }
         field.stringValue = String(value)
+    }
+    
+    func setWindowToCenter(win : NSWindow) {
+        let rect : NSRect = NSScreen.mainScreen()!.frame
+        var winXPos = (rect.width - win.frame.width) / 2
+
+        if (winXPos + win.frame.width + 50 >= rect.width) {
+            winXPos = rect.width - win.frame.width - 50
+        }
+        
+        var winYPos = rect.height / 2
+        if (winYPos + win.frame.height + 50 >= rect.height) {
+            winYPos = rect.height - win.frame.height - 50
+        }
+        
+        win.setFrameOrigin(NSPoint(x: winXPos, y: winYPos))
     }
 }
 
