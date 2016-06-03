@@ -13,7 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var preferenceWindow: NSWindow!
     @IBOutlet weak var skipWindow: NSWindow!
-
+    @IBOutlet weak var aboutWindow: NSWindow!
+    
     @IBOutlet weak var skipButton: NSButton!
     @IBOutlet weak var putOffButton: NSButton!
 
@@ -62,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("AppDelegate::applicationDidFinishLaunching()")
 
         initMenu()
+        initAboutWindow()
         initPreferenceWindow()
         initSkipWindow()
         SetTimeIntervalFromUserDefault()
@@ -99,6 +101,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func preferenceClick(sender: AnyObject) {
         preferenceWindow.setIsVisible(true)
+    }
+    
+    @IBAction func aboutClick(sender: AnyObject) {
+        aboutWindow.setIsVisible(true)
     }
     
     @IBAction func quitClick(sender: AnyObject) {
@@ -176,6 +182,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         icon?.template = true
         statusBar.image = icon
         statusBar.menu = menu
+    }
+    
+    func initAboutWindow() {
+        setWindowToCenter(aboutWindow)
+        aboutWindow.setIsVisible(false)
     }
     
     func initPreferenceWindow() {
