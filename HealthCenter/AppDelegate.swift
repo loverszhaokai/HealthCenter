@@ -187,11 +187,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func initAboutWindow() {
         setWindowToCenter(aboutWindow)
         aboutWindow.setIsVisible(false)
+        aboutWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey))
     }
     
     func initPreferenceWindow() {
         setWindowToCenter(preferenceWindow)
         preferenceWindow.setIsVisible(false)
+        preferenceWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey))
     }
     
     func initSkipWindow() {

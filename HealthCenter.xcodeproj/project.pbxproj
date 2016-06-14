@@ -7,62 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C5FCC701CF16B8C00060910 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCC6F1CF16B8C00060910 /* AppDelegate.swift */; };
-		5C5FCC721CF16B8C00060910 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5FCC711CF16B8C00060910 /* Assets.xcassets */; };
-		5C5FCC751CF16B8C00060910 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C5FCC731CF16B8C00060910 /* MainMenu.xib */; };
-		5C5FCC801CF16B8C00060910 /* HealthCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCC7F1CF16B8C00060910 /* HealthCenterTests.swift */; };
-		5C5FCC8B1CF16B8C00060910 /* HealthCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCC8A1CF16B8C00060910 /* HealthCenterUITests.swift */; };
-		5C5FCC991CF16CC600060910 /* TimerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCC981CF16CC600060910 /* TimerControl.swift */; settings = {ASSET_TAGS = (); }; };
+		5C7E955C1D1046710000270F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E955B1D1046710000270F /* AppDelegate.swift */; };
+		5C7E955E1D1046710000270F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C7E955D1D1046710000270F /* Assets.xcassets */; };
+		5C7E95611D1046710000270F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C7E955F1D1046710000270F /* MainMenu.xib */; };
+		5C7E956C1D1046710000270F /* HealthCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E956B1D1046710000270F /* HealthCenterTests.swift */; };
+		5C7E95771D1046710000270F /* HealthCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E95761D1046710000270F /* HealthCenterUITests.swift */; };
+		5C7E95851D1046B80000270F /* TimerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E95841D1046B80000270F /* TimerControl.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5C5FCC7C1CF16B8C00060910 /* PBXContainerItemProxy */ = {
+		5C7E95681D1046710000270F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5C5FCC641CF16B8C00060910 /* Project object */;
+			containerPortal = 5C7E95501D1046710000270F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5C5FCC6B1CF16B8C00060910;
+			remoteGlobalIDString = 5C7E95571D1046710000270F;
 			remoteInfo = HealthCenter;
 		};
-		5C5FCC871CF16B8C00060910 /* PBXContainerItemProxy */ = {
+		5C7E95731D1046710000270F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5C5FCC641CF16B8C00060910 /* Project object */;
+			containerPortal = 5C7E95501D1046710000270F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5C5FCC6B1CF16B8C00060910;
+			remoteGlobalIDString = 5C7E95571D1046710000270F;
 			remoteInfo = HealthCenter;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C5FCC6C1CF16B8C00060910 /* HealthCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C5FCC6F1CF16B8C00060910 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5C5FCC711CF16B8C00060910 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5C5FCC741CF16B8C00060910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		5C5FCC761CF16B8C00060910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C5FCC7B1CF16B8C00060910 /* HealthCenter.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthCenter.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C5FCC7F1CF16B8C00060910 /* HealthCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCenterTests.swift; sourceTree = "<group>"; };
-		5C5FCC811CF16B8C00060910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C5FCC861CF16B8C00060910 /* HealthCenter.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthCenter.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C5FCC8A1CF16B8C00060910 /* HealthCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCenterUITests.swift; sourceTree = "<group>"; };
-		5C5FCC8C1CF16B8C00060910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C5FCC981CF16CC600060910 /* TimerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerControl.swift; sourceTree = "<group>"; };
+		5C7E95581D1046710000270F /* HealthCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C7E955B1D1046710000270F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C7E955D1D1046710000270F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C7E95601D1046710000270F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5C7E95621D1046710000270F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C7E95671D1046710000270F /* HealthCenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthCenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C7E956B1D1046710000270F /* HealthCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCenterTests.swift; sourceTree = "<group>"; };
+		5C7E956D1D1046710000270F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C7E95721D1046710000270F /* HealthCenterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthCenterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C7E95761D1046710000270F /* HealthCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCenterUITests.swift; sourceTree = "<group>"; };
+		5C7E95781D1046710000270F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C7E95841D1046B80000270F /* TimerControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5C5FCC691CF16B8C00060910 /* Frameworks */ = {
+		5C7E95551D1046710000270F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C5FCC781CF16B8C00060910 /* Frameworks */ = {
+		5C7E95641D1046710000270F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C5FCC831CF16B8C00060910 /* Frameworks */ = {
+		5C7E956F1D1046710000270F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,69 +72,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C5FCC631CF16B8C00060910 = {
+		5C7E954F1D1046710000270F = {
 			isa = PBXGroup;
 			children = (
-				5C5FCC6E1CF16B8C00060910 /* HealthCenter */,
-				5C5FCC7E1CF16B8C00060910 /* HealthCenterTests */,
-				5C5FCC891CF16B8C00060910 /* HealthCenterUITests */,
-				5C5FCC6D1CF16B8C00060910 /* Products */,
+				5C7E955A1D1046710000270F /* HealthCenter */,
+				5C7E956A1D1046710000270F /* HealthCenterTests */,
+				5C7E95751D1046710000270F /* HealthCenterUITests */,
+				5C7E95591D1046710000270F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5C5FCC6D1CF16B8C00060910 /* Products */ = {
+		5C7E95591D1046710000270F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C5FCC6C1CF16B8C00060910 /* HealthCenter.app */,
-				5C5FCC7B1CF16B8C00060910 /* HealthCenter.xctest */,
-				5C5FCC861CF16B8C00060910 /* HealthCenter.xctest */,
+				5C7E95581D1046710000270F /* HealthCenter.app */,
+				5C7E95671D1046710000270F /* HealthCenterTests.xctest */,
+				5C7E95721D1046710000270F /* HealthCenterUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C5FCC6E1CF16B8C00060910 /* HealthCenter */ = {
+		5C7E955A1D1046710000270F /* HealthCenter */ = {
 			isa = PBXGroup;
 			children = (
-				5C5FCC6F1CF16B8C00060910 /* AppDelegate.swift */,
-				5C5FCC711CF16B8C00060910 /* Assets.xcassets */,
-				5C5FCC731CF16B8C00060910 /* MainMenu.xib */,
-				5C5FCC761CF16B8C00060910 /* Info.plist */,
-				5C5FCC981CF16CC600060910 /* TimerControl.swift */,
+				5C7E955B1D1046710000270F /* AppDelegate.swift */,
+				5C7E955D1D1046710000270F /* Assets.xcassets */,
+				5C7E955F1D1046710000270F /* MainMenu.xib */,
+				5C7E95621D1046710000270F /* Info.plist */,
+				5C7E95841D1046B80000270F /* TimerControl.swift */,
 			);
-			name = HealthCenter;
 			path = HealthCenter;
 			sourceTree = "<group>";
 		};
-		5C5FCC7E1CF16B8C00060910 /* HealthCenterTests */ = {
+		5C7E956A1D1046710000270F /* HealthCenterTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C5FCC7F1CF16B8C00060910 /* HealthCenterTests.swift */,
-				5C5FCC811CF16B8C00060910 /* Info.plist */,
+				5C7E956B1D1046710000270F /* HealthCenterTests.swift */,
+				5C7E956D1D1046710000270F /* Info.plist */,
 			);
-			name = HealthCenterTests;
 			path = HealthCenterTests;
 			sourceTree = "<group>";
 		};
-		5C5FCC891CF16B8C00060910 /* HealthCenterUITests */ = {
+		5C7E95751D1046710000270F /* HealthCenterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5C5FCC8A1CF16B8C00060910 /* HealthCenterUITests.swift */,
-				5C5FCC8C1CF16B8C00060910 /* Info.plist */,
+				5C7E95761D1046710000270F /* HealthCenterUITests.swift */,
+				5C7E95781D1046710000270F /* Info.plist */,
 			);
-			name = HealthCenterUITests;
 			path = HealthCenterUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C5FCC6B1CF16B8C00060910 /* HealthCenter */ = {
+		5C7E95571D1046710000270F /* HealthCenter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C5FCC8F1CF16B8C00060910 /* Build configuration list for PBXNativeTarget "HealthCenter" */;
+			buildConfigurationList = 5C7E957B1D1046710000270F /* Build configuration list for PBXNativeTarget "HealthCenter" */;
 			buildPhases = (
-				5C5FCC681CF16B8C00060910 /* Sources */,
-				5C5FCC691CF16B8C00060910 /* Frameworks */,
-				5C5FCC6A1CF16B8C00060910 /* Resources */,
+				5C7E95541D1046710000270F /* Sources */,
+				5C7E95551D1046710000270F /* Frameworks */,
+				5C7E95561D1046710000270F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -142,68 +139,68 @@
 			);
 			name = HealthCenter;
 			productName = HealthCenter;
-			productReference = 5C5FCC6C1CF16B8C00060910 /* HealthCenter.app */;
+			productReference = 5C7E95581D1046710000270F /* HealthCenter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5C5FCC7A1CF16B8C00060910 /* HealthCenterTests */ = {
+		5C7E95661D1046710000270F /* HealthCenterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C5FCC921CF16B8C00060910 /* Build configuration list for PBXNativeTarget "HealthCenterTests" */;
+			buildConfigurationList = 5C7E957E1D1046710000270F /* Build configuration list for PBXNativeTarget "HealthCenterTests" */;
 			buildPhases = (
-				5C5FCC771CF16B8C00060910 /* Sources */,
-				5C5FCC781CF16B8C00060910 /* Frameworks */,
-				5C5FCC791CF16B8C00060910 /* Resources */,
+				5C7E95631D1046710000270F /* Sources */,
+				5C7E95641D1046710000270F /* Frameworks */,
+				5C7E95651D1046710000270F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5C5FCC7D1CF16B8C00060910 /* PBXTargetDependency */,
+				5C7E95691D1046710000270F /* PBXTargetDependency */,
 			);
 			name = HealthCenterTests;
 			productName = HealthCenterTests;
-			productReference = 5C5FCC7B1CF16B8C00060910 /* HealthCenter.xctest */;
+			productReference = 5C7E95671D1046710000270F /* HealthCenterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5C5FCC851CF16B8C00060910 /* HealthCenterUITests */ = {
+		5C7E95711D1046710000270F /* HealthCenterUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C5FCC951CF16B8C00060910 /* Build configuration list for PBXNativeTarget "HealthCenterUITests" */;
+			buildConfigurationList = 5C7E95811D1046710000270F /* Build configuration list for PBXNativeTarget "HealthCenterUITests" */;
 			buildPhases = (
-				5C5FCC821CF16B8C00060910 /* Sources */,
-				5C5FCC831CF16B8C00060910 /* Frameworks */,
-				5C5FCC841CF16B8C00060910 /* Resources */,
+				5C7E956E1D1046710000270F /* Sources */,
+				5C7E956F1D1046710000270F /* Frameworks */,
+				5C7E95701D1046710000270F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5C5FCC881CF16B8C00060910 /* PBXTargetDependency */,
+				5C7E95741D1046710000270F /* PBXTargetDependency */,
 			);
 			name = HealthCenterUITests;
 			productName = HealthCenterUITests;
-			productReference = 5C5FCC861CF16B8C00060910 /* HealthCenter.xctest */;
+			productReference = 5C7E95721D1046710000270F /* HealthCenterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5C5FCC641CF16B8C00060910 /* Project object */ = {
+		5C7E95501D1046710000270F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = zhaokai;
 				TargetAttributes = {
-					5C5FCC6B1CF16B8C00060910 = {
+					5C7E95571D1046710000270F = {
 						CreatedOnToolsVersion = 7.0;
 					};
-					5C5FCC7A1CF16B8C00060910 = {
+					5C7E95661D1046710000270F = {
 						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 5C5FCC6B1CF16B8C00060910;
+						TestTargetID = 5C7E95571D1046710000270F;
 					};
-					5C5FCC851CF16B8C00060910 = {
+					5C7E95711D1046710000270F = {
 						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 5C5FCC6B1CF16B8C00060910;
+						TestTargetID = 5C7E95571D1046710000270F;
 					};
 				};
 			};
-			buildConfigurationList = 5C5FCC671CF16B8C00060910 /* Build configuration list for PBXProject "HealthCenter" */;
+			buildConfigurationList = 5C7E95531D1046710000270F /* Build configuration list for PBXProject "HealthCenter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -211,36 +208,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 5C5FCC631CF16B8C00060910;
-			productRefGroup = 5C5FCC6D1CF16B8C00060910 /* Products */;
+			mainGroup = 5C7E954F1D1046710000270F;
+			productRefGroup = 5C7E95591D1046710000270F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C5FCC6B1CF16B8C00060910 /* HealthCenter */,
-				5C5FCC7A1CF16B8C00060910 /* HealthCenterTests */,
-				5C5FCC851CF16B8C00060910 /* HealthCenterUITests */,
+				5C7E95571D1046710000270F /* HealthCenter */,
+				5C7E95661D1046710000270F /* HealthCenterTests */,
+				5C7E95711D1046710000270F /* HealthCenterUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5C5FCC6A1CF16B8C00060910 /* Resources */ = {
+		5C7E95561D1046710000270F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C5FCC721CF16B8C00060910 /* Assets.xcassets in Resources */,
-				5C5FCC751CF16B8C00060910 /* MainMenu.xib in Resources */,
+				5C7E955E1D1046710000270F /* Assets.xcassets in Resources */,
+				5C7E95611D1046710000270F /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C5FCC791CF16B8C00060910 /* Resources */ = {
+		5C7E95651D1046710000270F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C5FCC841CF16B8C00060910 /* Resources */ = {
+		5C7E95701D1046710000270F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,51 +247,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5C5FCC681CF16B8C00060910 /* Sources */ = {
+		5C7E95541D1046710000270F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C5FCC701CF16B8C00060910 /* AppDelegate.swift in Sources */,
-				5C5FCC991CF16CC600060910 /* TimerControl.swift in Sources */,
+				5C7E955C1D1046710000270F /* AppDelegate.swift in Sources */,
+				5C7E95851D1046B80000270F /* TimerControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C5FCC771CF16B8C00060910 /* Sources */ = {
+		5C7E95631D1046710000270F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C5FCC801CF16B8C00060910 /* HealthCenterTests.swift in Sources */,
+				5C7E956C1D1046710000270F /* HealthCenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C5FCC821CF16B8C00060910 /* Sources */ = {
+		5C7E956E1D1046710000270F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C5FCC8B1CF16B8C00060910 /* HealthCenterUITests.swift in Sources */,
+				5C7E95771D1046710000270F /* HealthCenterUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5C5FCC7D1CF16B8C00060910 /* PBXTargetDependency */ = {
+		5C7E95691D1046710000270F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C5FCC6B1CF16B8C00060910 /* HealthCenter */;
-			targetProxy = 5C5FCC7C1CF16B8C00060910 /* PBXContainerItemProxy */;
+			target = 5C7E95571D1046710000270F /* HealthCenter */;
+			targetProxy = 5C7E95681D1046710000270F /* PBXContainerItemProxy */;
 		};
-		5C5FCC881CF16B8C00060910 /* PBXTargetDependency */ = {
+		5C7E95741D1046710000270F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C5FCC6B1CF16B8C00060910 /* HealthCenter */;
-			targetProxy = 5C5FCC871CF16B8C00060910 /* PBXContainerItemProxy */;
+			target = 5C7E95571D1046710000270F /* HealthCenter */;
+			targetProxy = 5C7E95731D1046710000270F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5C5FCC731CF16B8C00060910 /* MainMenu.xib */ = {
+		5C7E955F1D1046710000270F /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5C5FCC741CF16B8C00060910 /* Base */,
+				5C7E95601D1046710000270F /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -302,7 +299,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5C5FCC8D1CF16B8C00060910 /* Debug */ = {
+		5C7E95791D1046710000270F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -346,7 +343,7 @@
 			};
 			name = Debug;
 		};
-		5C5FCC8E1CF16B8C00060910 /* Release */ = {
+		5C7E957A1D1046710000270F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -382,7 +379,7 @@
 			};
 			name = Release;
 		};
-		5C5FCC901CF16B8C00060910 /* Debug */ = {
+		5C7E957C1D1046710000270F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -390,11 +387,11 @@
 				INFOPLIST_FILE = HealthCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaokai.HealthCenter;
-				PRODUCT_NAME = HealthCenter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		5C5FCC911CF16B8C00060910 /* Release */ = {
+		5C7E957D1D1046710000270F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -402,11 +399,11 @@
 				INFOPLIST_FILE = HealthCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaokai.HealthCenter;
-				PRODUCT_NAME = HealthCenter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		5C5FCC931CF16B8C00060910 /* Debug */ = {
+		5C7E957F1D1046710000270F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -414,12 +411,12 @@
 				INFOPLIST_FILE = HealthCenterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaokai.HealthCenterTests;
-				PRODUCT_NAME = HealthCenter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthCenter.app/Contents/MacOS/HealthCenter";
 			};
 			name = Debug;
 		};
-		5C5FCC941CF16B8C00060910 /* Release */ = {
+		5C7E95801D1046710000270F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -427,32 +424,32 @@
 				INFOPLIST_FILE = HealthCenterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaokai.HealthCenterTests;
-				PRODUCT_NAME = HealthCenter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthCenter.app/Contents/MacOS/HealthCenter";
 			};
 			name = Release;
 		};
-		5C5FCC961CF16B8C00060910 /* Debug */ = {
+		5C7E95821D1046710000270F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HealthCenterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaokai.HealthCenterUITests;
-				PRODUCT_NAME = HealthCenter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = HealthCenter;
 				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
 		};
-		5C5FCC971CF16B8C00060910 /* Release */ = {
+		5C7E95831D1046710000270F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HealthCenterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaokai.HealthCenterUITests;
-				PRODUCT_NAME = HealthCenter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = HealthCenter;
 				USES_XCTRUNNER = YES;
 			};
@@ -461,43 +458,40 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C5FCC671CF16B8C00060910 /* Build configuration list for PBXProject "HealthCenter" */ = {
+		5C7E95531D1046710000270F /* Build configuration list for PBXProject "HealthCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C5FCC8D1CF16B8C00060910 /* Debug */,
-				5C5FCC8E1CF16B8C00060910 /* Release */,
+				5C7E95791D1046710000270F /* Debug */,
+				5C7E957A1D1046710000270F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C5FCC8F1CF16B8C00060910 /* Build configuration list for PBXNativeTarget "HealthCenter" */ = {
+		5C7E957B1D1046710000270F /* Build configuration list for PBXNativeTarget "HealthCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C5FCC901CF16B8C00060910 /* Debug */,
-				5C5FCC911CF16B8C00060910 /* Release */,
+				5C7E957C1D1046710000270F /* Debug */,
+				5C7E957D1D1046710000270F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		5C5FCC921CF16B8C00060910 /* Build configuration list for PBXNativeTarget "HealthCenterTests" */ = {
+		5C7E957E1D1046710000270F /* Build configuration list for PBXNativeTarget "HealthCenterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C5FCC931CF16B8C00060910 /* Debug */,
-				5C5FCC941CF16B8C00060910 /* Release */,
+				5C7E957F1D1046710000270F /* Debug */,
+				5C7E95801D1046710000270F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		5C5FCC951CF16B8C00060910 /* Build configuration list for PBXNativeTarget "HealthCenterUITests" */ = {
+		5C7E95811D1046710000270F /* Build configuration list for PBXNativeTarget "HealthCenterUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C5FCC961CF16B8C00060910 /* Debug */,
-				5C5FCC971CF16B8C00060910 /* Release */,
+				5C7E95821D1046710000270F /* Debug */,
+				5C7E95831D1046710000270F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5C5FCC641CF16B8C00060910 /* Project object */;
+	rootObject = 5C7E95501D1046710000270F /* Project object */;
 }

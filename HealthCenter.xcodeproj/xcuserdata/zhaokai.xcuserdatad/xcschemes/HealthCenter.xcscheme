@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
+               BlueprintIdentifier = "5C7E95571D1046710000270F"
                BuildableName = "HealthCenter.app"
                BlueprintName = "HealthCenter"
                ReferencedContainer = "container:HealthCenter.xcodeproj">
@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C5FCC7A1CF16B8C00060910"
-               BuildableName = "HealthCenter.xctest"
+               BlueprintIdentifier = "5C7E95661D1046710000270F"
+               BuildableName = "HealthCenterTests.xctest"
                BlueprintName = "HealthCenterTests"
                ReferencedContainer = "container:HealthCenter.xcodeproj">
             </BuildableReference>
@@ -42,8 +42,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C5FCC851CF16B8C00060910"
-               BuildableName = "HealthCenter.xctest"
+               BlueprintIdentifier = "5C7E95711D1046710000270F"
+               BuildableName = "HealthCenterUITests.xctest"
                BlueprintName = "HealthCenterUITests"
                ReferencedContainer = "container:HealthCenter.xcodeproj">
             </BuildableReference>
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
+            BlueprintIdentifier = "5C7E95571D1046710000270F"
             BuildableName = "HealthCenter.app"
             BlueprintName = "HealthCenter"
             ReferencedContainer = "container:HealthCenter.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
+            BlueprintIdentifier = "5C7E95571D1046710000270F"
             BuildableName = "HealthCenter.app"
             BlueprintName = "HealthCenter"
             ReferencedContainer = "container:HealthCenter.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
+            BlueprintIdentifier = "5C7E95571D1046710000270F"
             BuildableName = "HealthCenter.app"
             BlueprintName = "HealthCenter"
             ReferencedContainer = "container:HealthCenter.xcodeproj">
