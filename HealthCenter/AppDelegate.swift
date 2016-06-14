@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  EyeGuardian
+//  HealthCenter
 //
 //  Created by zhaokai on 5/22/16.
 //  Copyright © 2016 zhaokai. All rights reserved.
@@ -178,7 +178,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func initMenu() {
-        let icon = NSImage(named: "ball6")
+        let icon = NSImage(named: "ball")
         icon?.template = true
         statusBar.image = icon
         statusBar.menu = menu

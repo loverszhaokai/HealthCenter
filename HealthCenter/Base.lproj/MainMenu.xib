@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="EyeGuardian" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="HealthCenter" customModuleProvider="target">
             <connections>
                 <outlet property="aboutWindow" destination="uzh-dY-gmf" id="Ope-Qv-oTN"/>
                 <outlet property="lastRestTimeFixedLabel" destination="eU5-yE-0US" id="AZ9-op-mbK"/>
@@ -326,7 +326,7 @@
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfr-4B-bTq">
                         <rect key="frame" x="98" y="84" width="284" height="17"/>
                         <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" title="https://github.com/loverszhaokai/EyeGuardian" drawsBackground="YES" id="3lu-FF-UnI">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" title="https://github.com/loverszhaokai/HealthCenter" drawsBackground="YES" id="3lu-FF-UnI">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
-               BuildableName = "EyeGuardian.app"
-               BlueprintName = "EyeGuardian"
-               ReferencedContainer = "container:EyeGuardian.xcodeproj">
+               BuildableName = "HealthCenter.app"
+               BlueprintName = "HealthCenter"
+               ReferencedContainer = "container:HealthCenter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5C5FCC7A1CF16B8C00060910"
-               BuildableName = "EyeGuardianTests.xctest"
-               BlueprintName = "EyeGuardianTests"
-               ReferencedContainer = "container:EyeGuardian.xcodeproj">
+               BuildableName = "HealthCenter.xctest"
+               BlueprintName = "HealthCenterTests"
+               ReferencedContainer = "container:HealthCenter.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5C5FCC851CF16B8C00060910"
-               BuildableName = "EyeGuardianUITests.xctest"
-               BlueprintName = "EyeGuardianUITests"
-               ReferencedContainer = "container:EyeGuardian.xcodeproj">
+               BuildableName = "HealthCenter.xctest"
+               BlueprintName = "HealthCenterUITests"
+               ReferencedContainer = "container:HealthCenter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
-            BuildableName = "EyeGuardian.app"
-            BlueprintName = "EyeGuardian"
-            ReferencedContainer = "container:EyeGuardian.xcodeproj">
+            BuildableName = "HealthCenter.app"
+            BlueprintName = "HealthCenter"
+            ReferencedContainer = "container:HealthCenter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
-            BuildableName = "EyeGuardian.app"
-            BlueprintName = "EyeGuardian"
-            ReferencedContainer = "container:EyeGuardian.xcodeproj">
+            BuildableName = "HealthCenter.app"
+            BlueprintName = "HealthCenter"
+            ReferencedContainer = "container:HealthCenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C5FCC6B1CF16B8C00060910"
-            BuildableName = "EyeGuardian.app"
-            BlueprintName = "EyeGuardian"
-            ReferencedContainer = "container:EyeGuardian.xcodeproj">
+            BuildableName = "HealthCenter.app"
+            BlueprintName = "HealthCenter"
+            ReferencedContainer = "container:HealthCenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

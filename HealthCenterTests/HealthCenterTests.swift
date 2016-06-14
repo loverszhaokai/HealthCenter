@@ -1,15 +1,15 @@
 //
-//  EyeGuardianTests.swift
-//  EyeGuardianTests
+//  HealthCenterTests.swift
+//  HealthCenterTests
 //
 //  Created by zhaokai on 5/22/16.
 //  Copyright © 2016 zhaokai. All rights reserved.
 //
 
 import XCTest
-@testable import EyeGuardian
+@testable import HealthCenter
 
-class EyeGuardianTests: XCTestCase {
+class HealthCenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

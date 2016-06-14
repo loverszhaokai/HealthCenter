@@ -1,6 +1,6 @@
 //
 //  TimerControl.swift
-//  EyeGuardian
+//  HealthCenter
 //
 //  Created by zhaokai on 5/22/16.
 //  Copyright © 2016 zhaokai. All rights reserved.
