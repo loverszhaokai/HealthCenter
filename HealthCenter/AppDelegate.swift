@@ -201,7 +201,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         skipWindow.titlebarAppearsTransparent = true
         skipWindow.titleVisibility = .Hidden
         skipWindow.styleMask &= ~(NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask)
-        skipWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey)) + 100
+        skipWindow.level = Int(CGWindowLevelForKey(.StatusWindowLevelKey)) + 110
         skipWindow.setIsVisible(false)
     }
     
